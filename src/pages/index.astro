@@ -18,150 +18,181 @@ const signatories = signatoriesData.signatories || [];
 ---
 
 <Layout title="Use What Works - A Manifesto">
-  <header>
-    <h1>Use What Works</h1>
-    <span class="hashtag">#UseWhatWorks</span>
-  </header>
+  <!-- Hero Section -->
+  <section class="py-16 sm:py-24 px-4 sm:px-6 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+        Use What <span class="text-primary">Works</span>
+      </h1>
+      <p class="text-xl sm:text-2xl text-text-offset mb-8">
+        A manifesto for choosing proven solutions over bespoke frameworks.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="#manifesto"
+          class="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+        >
+          Read the Manifesto
+        </a>
+        <a
+          href="#sign"
+          class="px-6 py-3 border border-border text-text font-semibold rounded-lg hover:bg-background-offset transition-colors"
+        >
+          Sign It
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <article class="manifesto-content">
-    <blockquote>
-      We are a group of practitioners who believe in choosing proven solutions over building bespoke frameworks.
-    </blockquote>
+  <!-- Divider -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <hr class="border-border" />
+  </div>
 
-    <hr>
+  <!-- Manifesto Section -->
+  <section id="manifesto" class="py-16 px-4 sm:px-6">
+    <article class="max-w-3xl mx-auto">
+      <blockquote class="text-xl sm:text-2xl text-text-offset italic border-l-4 border-primary pl-6 my-8">
+        We are a group of practitioners who believe in choosing proven solutions over building bespoke frameworks.
+      </blockquote>
 
-    <h2>Our Principles</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold mt-12 mb-6">Our Principles</h2>
 
-    <p><strong>1. Stand on the shoulders of giants</strong></p>
-    <p>Before writing custom code, look for battle-tested libraries and frameworks that solve your problem. Thousands of hours of development, testing, and real-world usage have gone into open source solutions. Respect that investment.</p>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">1. Stand on the shoulders of giants</h3>
+          <p class="text-text-offset leading-relaxed">
+            Before writing custom code, look for battle-tested libraries and frameworks that solve your problem. Thousands of hours of development, testing, and real-world usage have gone into open source solutions. Respect that investment.
+          </p>
+        </div>
 
-    <p><strong>2. Your business logic is unique; your infrastructure is not</strong></p>
-    <p>Focus your custom code on what makes your product different. Authentication, routing, state management, and data fetching have been solved. Use those solutions.</p>
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">2. Your business logic is unique; your infrastructure is not</h3>
+          <p class="text-text-offset leading-relaxed">
+            Focus your custom code on what makes your product different. Authentication, routing, state management, and data fetching have been solved. Use those solutions.
+          </p>
+        </div>
 
-    <p><strong>3. Maintenance is a feature</strong></p>
-    <p>Every line of code you write is a line you must maintain. Libraries maintained by active communities share that burden across thousands of developers.</p>
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">3. Maintenance is a feature</h3>
+          <p class="text-text-offset leading-relaxed">
+            Every line of code you write is a line you must maintain. Libraries maintained by active communities share that burden across thousands of developers.
+          </p>
+        </div>
 
-    <p><strong>4. NIH syndrome is expensive</strong></p>
-    <p>"Not Invented Here" costs more than pride. It costs time, money, and opportunity. The best engineers know when to build and when to integrate.</p>
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">4. NIH syndrome is expensive</h3>
+          <p class="text-text-offset leading-relaxed">
+            "Not Invented Here" costs more than pride. It costs time, money, and opportunity. The best engineers know when to build and when to integrate.
+          </p>
+        </div>
 
-    <p><strong>5. Boring technology is a compliment</strong></p>
-    <p>Proven, stable, "boring" tools let you ship faster and sleep better. Save innovation for where it creates customer value.</p>
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">5. Boring technology is a compliment</h3>
+          <p class="text-text-offset leading-relaxed">
+            Proven, stable, "boring" tools let you ship faster and sleep better. Save innovation for where it creates customer value.
+          </p>
+        </div>
 
-    <p><strong>6. Documentation matters</strong></p>
-    <p>Well-documented solutions accelerate onboarding and reduce tribal knowledge. Popular libraries come with tutorials, Stack Overflow answers, and community support.</p>
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">6. Documentation matters</h3>
+          <p class="text-text-offset leading-relaxed">
+            Well-documented solutions accelerate onboarding and reduce tribal knowledge. Popular libraries come with tutorials, Stack Overflow answers, and community support.
+          </p>
+        </div>
 
-    <p><strong>7. Evaluate, then commit</strong></p>
-    <p>Take time to choose the right tool. Once chosen, commit fully. Constant second-guessing and premature optimization waste more time than careful initial selection.</p>
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">7. Evaluate, then commit</h3>
+          <p class="text-text-offset leading-relaxed">
+            Take time to choose the right tool. Once chosen, commit fully. Constant second-guessing and premature optimization waste more time than careful initial selection.
+          </p>
+        </div>
+      </div>
 
-    <hr>
+      <hr class="border-border my-12" />
 
-    <h2>What This Means in Practice</h2>
-    <ul>
-      <li>Use React, Vue, or Svelte instead of building a custom reactive framework</li>
-      <li>Use PostgreSQL, MySQL, or MongoDB instead of building a custom database</li>
-      <li>Use Auth0, Clerk, or Supabase Auth instead of rolling your own authentication</li>
-      <li>Use Stripe or PayPal instead of building payment processing</li>
-      <li>Use established CSS frameworks or design systems instead of starting from scratch</li>
-      <li>Use proven testing frameworks instead of custom test harnesses</li>
-    </ul>
-
-    <hr>
-
-    <h2>Join Us</h2>
-    <p>If you believe in building on proven foundations rather than reinventing wheels, add your name to the signatories below.</p>
-  </article>
-
-  <section class="signatories">
-    <h2>Signatories</h2>
-    <p class="signatory-count">
-      {signatories.length} {signatories.length === 1 ? 'person has' : 'people have'} signed this manifesto
-    </p>
-    <ul class="signatory-list">
-      {signatories.map((person) => (
-        <li class="signatory">
-          {person.url ? (
-            <a href={person.url} target="_blank" rel="noopener" class="signatory-name">
-              {person.name}
-            </a>
-          ) : (
-            <span class="signatory-name">{person.name}</span>
-          )}
-          {(person.title || person.org) && (
-            <span class="signatory-details">
-              {person.title}{person.title && person.org && ' at '}{person.org}
-            </span>
-          )}
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">What This Means in Practice</h2>
+      <ul class="space-y-3 text-text-offset">
+        <li class="flex items-start gap-3">
+          <span class="text-primary mt-1">-</span>
+          <span>Use React, Vue, or Svelte instead of building a custom reactive framework</span>
         </li>
-      ))}
-    </ul>
+        <li class="flex items-start gap-3">
+          <span class="text-primary mt-1">-</span>
+          <span>Use PostgreSQL, MySQL, or MongoDB instead of building a custom database</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-primary mt-1">-</span>
+          <span>Use Auth0, Clerk, or Supabase Auth instead of rolling your own authentication</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-primary mt-1">-</span>
+          <span>Use Stripe or PayPal instead of building payment processing</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-primary mt-1">-</span>
+          <span>Use established CSS frameworks or design systems instead of starting from scratch</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-primary mt-1">-</span>
+          <span>Use proven testing frameworks instead of custom test harnesses</span>
+        </li>
+      </ul>
+    </article>
+  </section>
 
-    <div class="cta">
-      <h2>Sign the Manifesto</h2>
-      <p>Add your name by submitting a pull request on GitHub.</p>
-      <a href="https://github.com/UseWhatWorks/website/edit/main/src/data/signatories.yaml" class="btn">
-        Add Your Signature
-      </a>
+  <!-- Divider -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <hr class="border-border" />
+  </div>
+
+  <!-- Signatories Section -->
+  <section id="sign" class="py-16 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2">Signatories</h2>
+        <p class="text-text-offset">
+          {signatories.length} {signatories.length === 1 ? 'person has' : 'people have'} signed this manifesto
+        </p>
+      </div>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+        {signatories.map((person) => (
+          <li class="p-4 bg-background-offset rounded-lg border border-border">
+            {person.url ? (
+              <a
+                href={person.url}
+                target="_blank"
+                rel="noopener"
+                class="font-semibold text-primary hover:underline"
+              >
+                {person.name}
+              </a>
+            ) : (
+              <span class="font-semibold">{person.name}</span>
+            )}
+            {(person.title || person.org) && (
+              <p class="text-sm text-text-offset mt-1">
+                {person.title}{person.title && person.org && ' at '}{person.org}
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
+
+      <!-- CTA -->
+      <div class="text-center p-8 bg-background-offset rounded-xl border border-border">
+        <h3 class="text-xl font-bold mb-2">Sign the Manifesto</h3>
+        <p class="text-text-offset mb-6">
+          Add your name by submitting a pull request on GitHub.
+        </p>
+        <a
+          href="https://github.com/UseWhatWorks/website/edit/main/src/data/signatories.yaml"
+          class="inline-block px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+        >
+          Add Your Signature
+        </a>
+      </div>
     </div>
   </section>
 </Layout>
-
-<style>
-  header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .manifesto-content blockquote {
-    font-size: 1.25rem;
-    font-style: italic;
-    color: var(--color-text-muted);
-    border-left: 4px solid var(--color-accent);
-    padding-left: 1.5rem;
-    margin: 2rem 0;
-  }
-
-  .manifesto-content hr {
-    border: none;
-    border-top: 1px solid var(--color-border);
-    margin: 2.5rem 0;
-  }
-
-  .signatories {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .signatory-count {
-    color: var(--color-text-muted);
-    font-size: 0.95rem;
-  }
-
-  .signatory-list {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
-    margin: 1.5rem 0;
-  }
-
-  .signatory {
-    padding: 1rem;
-    background: var(--color-border);
-    border-radius: 8px;
-    margin: 0;
-  }
-
-  .signatory-name {
-    font-weight: 600;
-    display: block;
-  }
-
-  .signatory-details {
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    display: block;
-    margin-top: 0.25rem;
-  }
-</style>

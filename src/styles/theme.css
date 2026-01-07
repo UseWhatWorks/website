@@ -1,0 +1,19 @@
+:root {
+  --color-primary: #ec4899;
+  --color-secondary: #6366f1;
+  --color-text: #111827;
+  --color-text-offset: #4b5563;
+  --color-background: #f9fafb;
+  --color-background-offset: #f3f4f6;
+  --color-border: rgba(17, 24, 39, 0.1);
+}
+
+.dark {
+  --color-primary: #f472b6;
+  --color-secondary: #818cf8;
+  --color-text: #f9fafb;
+  --color-text-offset: #9ca3af;
+  --color-background: #111827;
+  --color-background-offset: #1f2937;
+  --color-border: rgba(249, 250, 251, 0.1);
+}
