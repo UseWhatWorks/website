@@ -1,0 +1,21 @@
+# Signatories of the Use What Works Manifesto
+#
+# To add your name:
+# 1. Fork this repository
+# 2. Add your entry to this file (alphabetically by name)
+# 3. Submit a pull request
+#
+# Format:
+#   - name: Your Name
+#     url: https://your-website.com (optional)
+#     title: Your Title (optional)
+#     org: Your Organization (optional)
+
+signatories:
+  # - name: Ada Lovelace
+  #   url: https://example.com
+  #   title: Software Engineer
+  #   org: Example Corp
+
+  - name: Your Name Here
+    title: Be the first to sign!
