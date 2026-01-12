@@ -138,6 +138,24 @@ const signatories = signatoriesData.signatories || [];
     @apply text-text-offset leading-relaxed mb-4;
   }
 
+  .prose :global(a:not(.discuss-link)) {
+    @apply text-primary underline underline-offset-2 hover:decoration-primary transition-colors;
+    text-decoration-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+
+  .prose :global(a:not(.discuss-link):hover) {
+    text-decoration-color: var(--color-primary);
+  }
+
+  .prose :global(.discuss-link) {
+    @apply inline-flex items-center ml-2 text-text-offset hover:text-primary transition-colors no-underline align-middle;
+  }
+
+  .prose :global(.discuss-link svg) {
+    @apply w-5 h-5;
+    stroke-width: 2.5;
+  }
+
   .prose :global(ul) {
     @apply space-y-3 text-text-offset my-6;
   }
