@@ -1,8 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
 import yaml from 'js-yaml';
 import fs from 'node:fs';
 import path from 'node:path';
+
+// Load manifesto content
+const manifesto = await getEntry('manifesto', 'index');
+const { Content } = await manifesto.render();
 
 // Load signatories
 const signatoriesPath = path.join(process.cwd(), 'src/data/signatories.yaml');
@@ -17,7 +22,7 @@ const signatoriesData = yaml.load(signatoriesFile) as { signatories: Array<{
 const signatories = signatoriesData.signatories || [];
 ---
 
-<Layout title="Use What Works - A Manifesto">
+<Layout title={`${manifesto.data.title} - A Manifesto`}>
   <!-- Hero Section -->
   <section class="py-16 sm:py-24 px-4 sm:px-6 text-center">
     <div class="max-w-3xl mx-auto">
@@ -25,7 +30,7 @@ const signatories = signatoriesData.signatories || [];
         Use What <span class="text-primary">Works</span>
       </h1>
       <p class="text-xl sm:text-2xl text-text-offset mb-8">
-        A manifesto for choosing proven solutions over bespoke frameworks.
+        {manifesto.data.tagline}
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         <a
@@ -51,93 +56,8 @@ const signatories = signatoriesData.signatories || [];
 
   <!-- Manifesto Section -->
   <section id="manifesto" class="py-16 px-4 sm:px-6">
-    <article class="max-w-3xl mx-auto">
-      <blockquote class="text-xl sm:text-2xl text-text-offset italic border-l-4 border-primary pl-6 my-8">
-        We are a group of practitioners who believe in choosing proven solutions over building bespoke frameworks.
-      </blockquote>
-
-      <h2 class="text-2xl sm:text-3xl font-bold mt-12 mb-6">Our Principles</h2>
-
-      <div class="space-y-8">
-        <div>
-          <h3 class="text-lg font-semibold text-primary mb-2">1. Stand on the shoulders of giants</h3>
-          <p class="text-text-offset leading-relaxed">
-            Before writing custom code, look for battle-tested libraries and frameworks that solve your problem. Thousands of hours of development, testing, and real-world usage have gone into open source solutions. Respect that investment.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-lg font-semibold text-primary mb-2">2. Your business logic is unique; your infrastructure is not</h3>
-          <p class="text-text-offset leading-relaxed">
-            Focus your custom code on what makes your product different. Authentication, routing, state management, and data fetching have been solved. Use those solutions.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-lg font-semibold text-primary mb-2">3. Maintenance is a feature</h3>
-          <p class="text-text-offset leading-relaxed">
-            Every line of code you write is a line you must maintain. Libraries maintained by active communities share that burden across thousands of developers.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-lg font-semibold text-primary mb-2">4. NIH syndrome is expensive</h3>
-          <p class="text-text-offset leading-relaxed">
-            "Not Invented Here" costs more than pride. It costs time, money, and opportunity. The best engineers know when to build and when to integrate.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-lg font-semibold text-primary mb-2">5. Boring technology is a compliment</h3>
-          <p class="text-text-offset leading-relaxed">
-            Proven, stable, "boring" tools let you ship faster and sleep better. Save innovation for where it creates customer value.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-lg font-semibold text-primary mb-2">6. Documentation matters</h3>
-          <p class="text-text-offset leading-relaxed">
-            Well-documented solutions accelerate onboarding and reduce tribal knowledge. Popular libraries come with tutorials, Stack Overflow answers, and community support.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-lg font-semibold text-primary mb-2">7. Evaluate, then commit</h3>
-          <p class="text-text-offset leading-relaxed">
-            Take time to choose the right tool. Once chosen, commit fully. Constant second-guessing and premature optimization waste more time than careful initial selection.
-          </p>
-        </div>
-      </div>
-
-      <hr class="border-border my-12" />
-
-      <h2 class="text-2xl sm:text-3xl font-bold mb-6">What This Means in Practice</h2>
-      <ul class="space-y-3 text-text-offset">
-        <li class="flex items-start gap-3">
-          <span class="text-primary mt-1">-</span>
-          <span>Use React, Vue, or Svelte instead of building a custom reactive framework</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-primary mt-1">-</span>
-          <span>Use PostgreSQL, MySQL, or MongoDB instead of building a custom database</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-primary mt-1">-</span>
-          <span>Use Auth0, Clerk, or Supabase Auth instead of rolling your own authentication</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-primary mt-1">-</span>
-          <span>Use Stripe or PayPal instead of building payment processing</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-primary mt-1">-</span>
-          <span>Use established CSS frameworks or design systems instead of starting from scratch</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-primary mt-1">-</span>
-          <span>Use proven testing frameworks instead of custom test harnesses</span>
-        </li>
-      </ul>
+    <article class="prose">
+      <Content />
     </article>
   </section>
 
@@ -196,3 +116,60 @@ const signatories = signatoriesData.signatories || [];
     </div>
   </section>
 </Layout>
+
+<style>
+  .prose {
+    @apply max-w-3xl mx-auto;
+  }
+
+  .prose :global(blockquote) {
+    @apply text-xl sm:text-2xl text-text-offset italic border-l-4 border-primary pl-6 my-8;
+  }
+
+  .prose :global(h2) {
+    @apply text-2xl sm:text-3xl font-bold mt-12 mb-6;
+  }
+
+  .prose :global(h3) {
+    @apply text-lg font-semibold text-primary mb-2 mt-8;
+  }
+
+  .prose :global(p) {
+    @apply text-text-offset leading-relaxed mb-4;
+  }
+
+  .prose :global(a:not(.discuss-link)) {
+    @apply text-primary underline underline-offset-2 hover:decoration-primary transition-colors;
+    text-decoration-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+
+  .prose :global(a:not(.discuss-link):hover) {
+    text-decoration-color: var(--color-primary);
+  }
+
+  .prose :global(.discuss-link) {
+    @apply inline-flex items-center ml-2 text-text-offset hover:text-primary transition-colors no-underline align-middle;
+  }
+
+  .prose :global(.discuss-link svg) {
+    @apply w-5 h-5;
+    stroke-width: 2.5;
+  }
+
+  .prose :global(ul) {
+    @apply space-y-3 text-text-offset my-6;
+  }
+
+  .prose :global(li) {
+    @apply flex items-start gap-3;
+  }
+
+  .prose :global(li::before) {
+    content: "-";
+    @apply text-primary;
+  }
+
+  .prose :global(hr) {
+    @apply border-border my-12;
+  }
+</style>
