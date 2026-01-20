@@ -3,7 +3,7 @@ title: Use What Works
 tagline: A manifesto for choosing what works over rolling your own.
 ---
 
-> Organizations should generally use existing, proven, and sustainable solutions to common problems (i.e. [infrastructure](https://github.com/UseWhatWorks/Documentation/blob/main/definitions/infrastructure.md)) rather than developing, maintaining, and running their own.
+> Organizations should generally use existing, proven, and sustainable solutions to common problems (i.e. [infrastructure](/definitions/infrastructure.md)) rather than developing, maintaining, and running their own.
 
 ## Reasoning
 
@@ -13,13 +13,13 @@ tagline: A manifesto for choosing what works over rolling your own.
 
 Don't roll your own. Use what works.
 
-## [Transferable Skills](/public/messaging/stakeholders/individual-developers.md#developing-transferable-and-in-demand-knowledge-and-skills) {discuss:1}
+## [Transferable Skills](/messaging/stakeholders/individual-developers.md#developing-transferable-and-in-demand-knowledge-and-skills) {discuss:1}
 
-Integrating existing solutions generally delivers [results/value](https://github.com/UseWhatWorks/Documentation/blob/main/messaging/stakeholders/organization-management.md#responsibilities) faster than building new ones.
+Integrating existing solutions generally delivers [results/value](/messaging/stakeholders/organization-management.md#responsibilities) faster than building new ones.
 
-Building things from scratch is a great way to learn the underlying concepts, but developers who can confidently deploy established technologies deliver more [value](https://github.com/UseWhatWorks/Documentation/blob/main/messaging/stakeholders/organization-management.md#responsibilities) than developers who build their own versions of those things.
+Building things from scratch is a great way to learn the underlying concepts, but developers who can confidently deploy established technologies deliver more [value](/messaging/stakeholders/organization-management.md#responsibilities) than developers who build their own versions of those things.
 
-[Turnover](https://github.com/UseWhatWorks/Documentation/blob/main//messaging/stakeholders/engineering-management.md) happens; when it does, who will maintain the custom solution one developer left as their legacy in your application? If nobody else understands their custom solution, where will you find support?
+[Turnover](//messaging/stakeholders/engineering-management.md) happens; when it does, who will maintain the custom solution one developer left as their legacy in your application? If nobody else understands their custom solution, where will you find support?
 
 [contribute to the discussion](https://github.com/orgs/UseWhatWorks/discussions/1)
 
@@ -36,4 +36,4 @@ metrics, and insights that lead to higher quality. Improvements and bug fixes be
 
 ## Predictable Development {discuss:4}
 
-Proven solutions have fewer surprises. Documentation, case studies, and sample applications mean your team spends less time troubleshooting infrastructure and more time delivering [value](https://github.com/UseWhatWorks/Documentation/blob/main/messaging/stakeholders/organization-management.md#responsibilities). If you're leveraging AI coding assistance, all of these things make their recommendations better, too. And beyond AI, proven solutions generally have communities of actual human developers available to help when problems come up, or when you need to hire someone. Not only that, but support agreements mean you can get actual professional experts to help when things really go wrong.
+Proven solutions have fewer surprises. Documentation, case studies, and sample applications mean your team spends less time troubleshooting infrastructure and more time delivering [value](/messaging/stakeholders/organization-management.md#responsibilities). If you're leveraging AI coding assistance, all of these things make their recommendations better, too. And beyond AI, proven solutions generally have communities of actual human developers available to help when problems come up, or when you need to hire someone. Not only that, but support agreements mean you can get actual professional experts to help when things really go wrong.

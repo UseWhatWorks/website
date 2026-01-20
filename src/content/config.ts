@@ -8,6 +8,22 @@ const manifesto = defineCollection({
   }),
 });
 
+const definitions = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string().optional(),
+  }),
+});
+
+const messaging = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string().optional(),
+  }),
+});
+
 export const collections = {
   manifesto,
+  definitions,
+  messaging,
 };
