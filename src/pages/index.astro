@@ -5,9 +5,9 @@ import yaml from 'js-yaml';
 import fs from 'node:fs';
 import path from 'node:path';
 
-// Load manifesto content
+// Load manifesto for the quote
 const manifesto = await getEntry('manifesto', 'index');
-const { Content } = await manifesto.render();
+const { headings } = await manifesto.render();
 
 // Load signatories
 const signatoriesPath = path.join(process.cwd(), 'src/data/signatories.yaml');
@@ -20,49 +20,98 @@ const signatoriesData = yaml.load(signatoriesFile) as { signatories: Array<{
 }> };
 
 const signatories = signatoriesData.signatories || [];
+
+const roles = [
+  {
+    title: "Developers",
+    emoji: "👩‍💻",
+    tagline: "Building the future with proven tools",
+    gradient: "from-blue-500 to-cyan-500",
+    link: "/for/developers",
+    description: "Learn why using established solutions makes you more valuable and your code more maintainable."
+  },
+  {
+    title: "Engineering Leaders",
+    emoji: "🧭",
+    tagline: "Guiding teams to sustainable success",
+    gradient: "from-purple-500 to-pink-500",
+    link: "/for/engineering-leaders",
+    description: "Discover how proven infrastructure reduces risk and empowers your team to focus on what matters."
+  },
+  {
+    title: "Technical Leadership",
+    emoji: "🎯",
+    tagline: "Making strategic technology decisions",
+    gradient: "from-orange-500 to-red-500",
+    link: "/for/technical-leadership",
+    description: "Understand the business case for leveraging existing solutions over building from scratch."
+  }
+];
 ---
 
-<Layout title={`${manifesto.data.title} - A Manifesto`}>
+<Layout title="Use What Works - Choose proven solutions over building from scratch">
   <!-- Hero Section -->
-  <section class="py-16 sm:py-24 px-4 sm:px-6 text-center">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+  <section class="py-20 sm:py-32 px-4 sm:px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-8">
         Use What <span class="text-primary">Works</span>
       </h1>
-      <p class="text-xl sm:text-2xl text-text-offset mb-8">
-        {manifesto.data.tagline}
+      <blockquote class="text-2xl sm:text-3xl text-text-offset italic max-w-3xl mx-auto leading-relaxed">
+        Organizations should generally use existing, proven, and sustainable solutions to common problems rather than developing, maintaining, and running their own.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Role Selection -->
+  <section class="py-16 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4">
+        Choose Your Path
+      </h2>
+      <p class="text-xl text-text-offset text-center mb-12 max-w-2xl mx-auto">
+        Discover how Use What Works applies to your role and responsibilities.
       </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a
-          href="#manifesto"
-          class="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
-        >
-          Read the Manifesto
-        </a>
-        <a
-          href="#sign"
-          class="px-6 py-3 border border-border text-text font-semibold rounded-lg hover:bg-background-offset transition-colors"
-        >
-          Sign It
-        </a>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {roles.map((role) => (
+          <a
+            href={role.link}
+            class="role-card group relative overflow-hidden rounded-2xl p-8 bg-background-offset border border-border transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          >
+            <div class={`absolute inset-0 bg-gradient-to-br ${role.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+
+            <div class="relative z-10">
+              <div class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                {role.emoji}
+              </div>
+
+              <h3 class="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                {role.title}
+              </h3>
+
+              <p class="text-sm font-semibold text-primary mb-4 opacity-80">
+                {role.tagline}
+              </p>
+
+              <p class="text-text-offset leading-relaxed">
+                {role.description}
+              </p>
+
+              <div class="mt-6 flex items-center text-primary font-semibold">
+                Explore
+                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Divider -->
-  <div class="max-w-4xl mx-auto px-4 sm:px-6">
-    <hr class="border-border" />
-  </div>
-
-  <!-- Manifesto Section -->
-  <section id="manifesto" class="py-16 px-4 sm:px-6">
-    <article class="prose">
-      <Content />
-    </article>
-  </section>
-
-  <!-- Divider -->
-  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 my-16">
     <hr class="border-border" />
   </div>
 
@@ -78,7 +127,7 @@ const signatories = signatoriesData.signatories || [];
 
       <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
         {signatories.map((person) => (
-          <li class="p-4 bg-background-offset rounded-lg border border-border">
+          <li class="p-4 bg-background-offset rounded-lg border border-border hover:border-primary transition-colors">
             {person.url ? (
               <a
                 href={person.url}
@@ -118,58 +167,7 @@ const signatories = signatoriesData.signatories || [];
 </Layout>
 
 <style>
-  .prose {
-    @apply max-w-3xl mx-auto;
-  }
-
-  .prose :global(blockquote) {
-    @apply text-xl sm:text-2xl text-text-offset italic border-l-4 border-primary pl-6 my-8;
-  }
-
-  .prose :global(h2) {
-    @apply text-2xl sm:text-3xl font-bold mt-12 mb-6;
-  }
-
-  .prose :global(h3) {
-    @apply text-lg font-semibold text-primary mb-2 mt-8;
-  }
-
-  .prose :global(p) {
-    @apply text-text-offset leading-relaxed mb-4;
-  }
-
-  .prose :global(a:not(.discuss-link)) {
-    @apply text-primary underline underline-offset-2 hover:decoration-primary transition-colors;
-    text-decoration-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
-  }
-
-  .prose :global(a:not(.discuss-link):hover) {
-    text-decoration-color: var(--color-primary);
-  }
-
-  .prose :global(.discuss-link) {
-    @apply inline-flex items-center ml-2 text-text-offset hover:text-primary transition-colors no-underline align-middle;
-  }
-
-  .prose :global(.discuss-link svg) {
-    @apply w-5 h-5;
-    stroke-width: 2.5;
-  }
-
-  .prose :global(ul) {
-    @apply space-y-3 text-text-offset my-6;
-  }
-
-  .prose :global(li) {
-    @apply flex items-start gap-3;
-  }
-
-  .prose :global(li::before) {
-    content: "-";
-    @apply text-primary;
-  }
-
-  .prose :global(hr) {
-    @apply border-border my-12;
+  .role-card {
+    backdrop-filter: blur(10px);
   }
 </style>

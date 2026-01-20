@@ -1,0 +1,105 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+
+const content = await getEntry('messaging', 'stakeholders/engineering-management');
+const { Content } = await content.render();
+---
+
+<Layout title="For Engineering Leaders - Use What Works">
+  <!-- Hero -->
+  <section class="py-16 sm:py-20 px-4 sm:px-6 text-center bg-gradient-to-br from-purple-500/10 to-pink-500/10">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-6xl mb-6">🧭</div>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">
+        For <span class="text-primary">Engineering Leaders</span>
+      </h1>
+      <p class="text-xl text-text-offset">
+        Guiding teams to sustainable success
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-16 px-4 sm:px-6">
+    <article class="prose">
+      <Content />
+    </article>
+  </section>
+
+  <!-- Back Link -->
+  <section class="pb-16 px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto">
+      <a href="/" class="inline-flex items-center text-primary hover:underline">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Back to home
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .prose {
+    @apply max-w-3xl mx-auto;
+  }
+
+  .prose :global(h1) {
+    @apply text-3xl sm:text-4xl font-bold mb-6;
+  }
+
+  .prose :global(h2) {
+    @apply text-2xl sm:text-3xl font-bold mt-12 mb-6;
+  }
+
+  .prose :global(h3) {
+    @apply text-lg font-semibold text-primary mb-2 mt-8;
+  }
+
+  .prose :global(h4) {
+    @apply text-base font-semibold mb-2 mt-6;
+  }
+
+  .prose :global(p) {
+    @apply text-text-offset leading-relaxed mb-4;
+  }
+
+  .prose :global(a:not(.discuss-link)) {
+    @apply text-primary underline underline-offset-2 hover:decoration-primary transition-colors;
+    text-decoration-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+
+  .prose :global(a:not(.discuss-link):hover) {
+    text-decoration-color: var(--color-primary);
+  }
+
+  .prose :global(.discuss-link) {
+    @apply inline-flex items-center ml-2 text-text-offset hover:text-primary transition-colors no-underline align-middle;
+  }
+
+  .prose :global(.discuss-link svg) {
+    @apply w-5 h-5;
+    stroke-width: 2.5;
+  }
+
+  .prose :global(ul) {
+    @apply space-y-2 text-text-offset my-6 list-disc pl-6;
+  }
+
+  .prose :global(ol) {
+    @apply space-y-2 text-text-offset my-6 list-decimal pl-6;
+  }
+
+  .prose :global(li) {
+    @apply leading-relaxed;
+  }
+
+  .prose :global(hr) {
+    @apply border-border my-12;
+  }
+
+  .prose :global(blockquote) {
+    @apply text-text-offset italic border-l-4 border-primary pl-6 my-6;
+  }
+</style>
