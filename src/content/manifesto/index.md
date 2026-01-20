@@ -21,8 +21,6 @@ Building things from scratch is a great way to learn the underlying concepts, bu
 
 [Turnover](//messaging/stakeholders/engineering-management.md) happens; when it does, who will maintain the custom solution one developer left as their legacy in your application? If nobody else understands their custom solution, where will you find support?
 
-[contribute to the discussion](https://github.com/orgs/UseWhatWorks/discussions/1)
-
 ## Sustainable Infrastructure {discuss:2}
 
 Maintaining software costs money. The cost of such maintenance should be borne by companies and organisations with the resources to do so. Price should never be a barrier to adoption for customers that genuinely can't justify the expense.
