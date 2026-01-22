@@ -6,16 +6,16 @@ const content = await getEntry('manifesto', 'engineering-leaders');
 const { Content } = await content.render();
 ---
 
-<Layout title="For Engineering Leaders - Use What Works">
+<Layout title={`${content.data.title} - Use What Works`}>
   <!-- Hero -->
-  <section class="py-16 sm:py-20 px-4 sm:px-6 text-center bg-gradient-to-br from-purple-500/10 to-pink-500/10">
+  <section class={`py-16 sm:py-20 px-4 sm:px-6 text-center bg-gradient-to-br ${content.data.gradient}`}>
     <div class="max-w-3xl mx-auto">
-      <div class="text-6xl mb-6">🧭</div>
+      <div class="text-6xl mb-6">{content.data.emoji}</div>
       <h1 class="text-4xl sm:text-5xl font-bold mb-4">
-        For <span class="text-primary">Engineering Leaders</span>
+        {content.data.title}
       </h1>
       <p class="text-xl text-text-offset">
-        Guiding teams to sustainable success
+        {content.data.tagline}
       </p>
     </div>
   </section>
