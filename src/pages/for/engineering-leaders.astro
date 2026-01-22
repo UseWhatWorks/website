@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { getEntry } from 'astro:content';
 
-const content = await getEntry('messaging', 'stakeholders/engineering-management');
+const content = await getEntry('manifesto', 'engineering-leaders');
 const { Content } = await content.render();
 ---
 
