@@ -7,6 +7,7 @@ const manifesto = defineCollection({
     tagline: z.string(),
     emoji: z.string().optional(),
     gradient: z.string().optional(),
+    discussion_id: z.number().optional(),
     roles: z.array(z.object({
       title: z.string(),
       emoji: z.string(),
