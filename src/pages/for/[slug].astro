@@ -1,8 +1,22 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getEntry } from 'astro:content';
+import { getEntry, getCollection } from 'astro:content';
 
-const content = await getEntry('manifesto', 'engineering-leaders');
+export async function getStaticPaths() {
+  const manifestoEntries = await getCollection('manifesto');
+
+  // Filter out index.md and only get role pages
+  const rolePages = manifestoEntries.filter(entry =>
+    entry.id !== 'index.md' && entry.data.emoji
+  );
+
+  return rolePages.map(entry => ({
+    params: { slug: entry.id.replace('.md', '') },
+  }));
+}
+
+const { slug } = Astro.params;
+const content = await getEntry('manifesto', slug);
 const { Content } = await content.render();
 ---
 
