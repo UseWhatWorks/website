@@ -3,6 +3,7 @@ title: "For Engineering Leaders"
 tagline: "Guiding teams to sustainable success"
 emoji: "🧭"
 gradient: "from-purple-500/10 to-pink-500/10"
+discussion_id: 2
 ---
 
 # Engineering management

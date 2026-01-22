@@ -1,8 +1,22 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getEntry } from 'astro:content';
+import { getEntry, getCollection } from 'astro:content';
 
-const content = await getEntry('manifesto', 'engineering-leaders');
+export async function getStaticPaths() {
+  const manifestoEntries = await getCollection('manifesto');
+
+  // Filter out index.md and only get role pages
+  const rolePages = manifestoEntries.filter(entry =>
+    entry.id !== 'index.md' && entry.data.emoji
+  );
+
+  return rolePages.map(entry => ({
+    params: { slug: entry.id.replace('.md', '') },
+  }));
+}
+
+const { slug } = Astro.params;
+const content = await getEntry('manifesto', slug);
 const { Content } = await content.render();
 ---
 
@@ -29,13 +43,23 @@ const { Content } = await content.render();
 
   <!-- Back Link -->
   <section class="pb-16 px-4 sm:px-6">
-    <div class="max-w-3xl mx-auto">
-      <a href="/" class="inline-flex items-center text-primary hover:underline">
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-        </svg>
-        Back to home
-      </a>
+    <div class="max-w-3xl mx-auto flex items-center">
+        <a href="/" class="inline-flex items-center text-primary hover:underline">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Back to home
+        </a>
+        {content.data.discussion_id && (
+          <>
+            <span class="mx-2 text-text-offset">|</span>
+            <a
+              href={`https://github.com/orgs/UseWhatWorks/discussions/${content.data.discussion_id}`}
+              target="_blank"
+              rel="noopener"
+              class="text-primary hover:underline">Discuss this</a>
+          </>
+        )}
     </div>
   </section>
 </Layout>

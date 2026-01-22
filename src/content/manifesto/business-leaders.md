@@ -3,6 +3,7 @@ title: "For Business Leaders"
 tagline: "Stop waste and reduce risk"
 emoji: "🎯"
 gradient: "from-orange-500/10 to-red-500/10"
+discussion_id: 3
 ---
 
 # Organization management
