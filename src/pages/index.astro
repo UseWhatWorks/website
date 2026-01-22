@@ -5,9 +5,9 @@ import yaml from 'js-yaml';
 import fs from 'node:fs';
 import path from 'node:path';
 
-// Load manifesto for the quote
+// Load manifesto for roles and content
 const manifesto = await getEntry('manifesto', 'index');
-const { headings } = await manifesto.render();
+const roles = manifesto.data.roles || [];
 
 // Load signatories
 const signatoriesPath = path.join(process.cwd(), 'src/data/signatories.yaml');
@@ -20,33 +20,6 @@ const signatoriesData = yaml.load(signatoriesFile) as { signatories: Array<{
 }> };
 
 const signatories = signatoriesData.signatories || [];
-
-const roles = [
-  {
-    title: "Developers",
-    emoji: "👩‍💻",
-    tagline: "Building the future with proven tools",
-    gradient: "from-blue-500 to-cyan-500",
-    link: "/for/developers",
-    description: "Learn why using established solutions makes you more valuable and your code more maintainable."
-  },
-  {
-    title: "Engineering Leaders",
-    emoji: "🧭",
-    tagline: "Guiding teams to sustainable success",
-    gradient: "from-purple-500 to-pink-500",
-    link: "/for/engineering-leaders",
-    description: "Discover how proven infrastructure reduces risk and empowers your team to focus on what matters."
-  },
-  {
-    title: "Business Leaders",
-    emoji: "🎯",
-    tagline: "Stop waste and reduce risk",
-    gradient: "from-orange-500 to-red-500",
-    link: "/for/business-leaders",
-    description: "Understand how budgets and approval processes nudge technical groups into wasteful territory."
-  }
-];
 ---
 
 <Layout title="Use What Works - Choose proven solutions over building from scratch">
