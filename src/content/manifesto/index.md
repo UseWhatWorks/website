@@ -1,6 +1,25 @@
 ---
 title: Use What Works
 tagline: A manifesto for choosing what works over rolling your own.
+roles:
+  - title: "Developers"
+    emoji: "👩‍💻"
+    tagline: "Building the future with proven tools"
+    gradient: "from-blue-500 to-cyan-500"
+    link: "/for/developers"
+    description: "Learn why using established solutions makes you more valuable and your code more maintainable."
+  - title: "Engineering Leaders"
+    emoji: "🧭"
+    tagline: "Guiding teams to sustainable success"
+    gradient: "from-purple-500 to-pink-500"
+    link: "/for/engineering-leaders"
+    description: "Discover how proven infrastructure reduces risk and empowers your team to focus on what matters."
+  - title: "Business Leaders"
+    emoji: "🎯"
+    tagline: "Stop waste and reduce risk"
+    gradient: "from-orange-500 to-red-500"
+    link: "/for/business-leaders"
+    description: "Understand how budgets and approval processes nudge technical groups into wasteful territory."
 ---
 
 > Organizations should generally use existing, proven, and sustainable solutions to common problems (i.e. [infrastructure](/definitions/infrastructure.md)) rather than developing, maintaining, and running their own.

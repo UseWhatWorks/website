@@ -1,3 +1,10 @@
+---
+title: "For Business Leaders"
+tagline: "Stop waste and reduce risk"
+emoji: "🎯"
+gradient: "from-orange-500/10 to-red-500/10"
+---
+
 # Organization management
 
 This is group of people having "management" responsibilities over the whole of the organization.

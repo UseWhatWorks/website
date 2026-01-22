@@ -5,6 +5,16 @@ const manifesto = defineCollection({
   schema: z.object({
     title: z.string(),
     tagline: z.string(),
+    emoji: z.string().optional(),
+    gradient: z.string().optional(),
+    roles: z.array(z.object({
+      title: z.string(),
+      emoji: z.string(),
+      tagline: z.string(),
+      gradient: z.string(),
+      link: z.string(),
+      description: z.string(),
+    })).optional(),
   }),
 });
 
