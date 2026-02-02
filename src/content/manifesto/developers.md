@@ -3,6 +3,7 @@ title: "For Developers"
 tagline: "Building the future with proven tools"
 emoji: "👩‍💻"
 gradient: "from-blue-500/10 to-cyan-500/10"
+discussion_id: 1
 ---
 
 # Individual developers
