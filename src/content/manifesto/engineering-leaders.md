@@ -6,7 +6,7 @@ gradient: "from-purple-500/10 to-pink-500/10"
 discussion_id: 2
 ---
 
-# Engineering management
+# Engineering management {discuss:3}
 
 This is group of people having "people management" responsibilities over the engineering function in an organization.
 

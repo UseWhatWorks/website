@@ -6,7 +6,7 @@ gradient: "from-orange-500/10 to-red-500/10"
 discussion_id: 3
 ---
 
-# Organization management
+# Organization management {discuss:2}
 
 This is group of people having "management" responsibilities over the whole of the organization.
 
