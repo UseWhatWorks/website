@@ -41,7 +41,7 @@ People leave. When they do, who maintains the custom solution they built? If doc
 3. **"Given enough eyeballs, all bugs are shallow." - Linus' Law**
 Software deployed across thousands of organizations and at every imaginable scale has already encountered — and resolved — problems your custom solution hasn’t even discovered yet. You benefit from the collective experience of an entire community.
 4. **Predictability Reduces Risk**
-Proven solutions come with documentation, case studies, and communities. When something breaks at 2 AM, there is likely a Stack Overflow thread, a support agreement, or a consultant who has seen it before. Your custom solution has none of these. Just an on-call engineer reading code they did not write.
+Proven solutions come with documentation, case studies, and communities. When something breaks at 2 AM, there is likely a forum thread, a support agreement, or a consultant who has seen it before. Your custom solution has none of these. Just an on-call engineer reading code they did not write.
 
 ### The Sustainability Argument
 
