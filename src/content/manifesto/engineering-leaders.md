@@ -36,7 +36,7 @@ Your authentication system is probably not your competitive advantage. Neither i
 1. **Your strongest engineers should be working on what differentiates your business.**
 Every hour a talented developer spends building a custom caching layer is an hour not spent on features that differentiate your product. Proven solutions let your team focus on value creation instead of infrastructure reinvention.
 
-2.** Turnover Is Inevitable. Plan for It.**
+2. **Turnover Is Inevitable. Plan for It.**
 People leave. When they do, who maintains the custom solution they built? If documented, it reflects their style, assumptions, and understanding. Established technologies come with community knowledge, third-party documentation, and a hiring pool of people who already know how they work.d Beats Theoretically Elegant
 3. **"Given enough eyeballs, all bugs are shallow." - Linus' Law**
 Software deployed across thousands of organizations and at every imaginable scale has already encountered — and resolved — problems your custom solution hasn’t even discovered yet. You benefit from the collective experience of an entire community.
