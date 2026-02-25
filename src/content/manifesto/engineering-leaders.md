@@ -14,7 +14,7 @@ This is group of people having "people management" responsibilities over the eng
 
 * Fostering an environment with systems and processes that allow for a continued flow of sustainable work even as people come and go from the organization. This serves the overall need to [manage risk](/messaging/stakeholders/organization-management.md#managing-risk).
 
-## The Case for "Use What Works": Why Tech Leaders Don't Reinventing the Wheel
+## The Case for "Use What Works": Why Tech Leaders Don't Reinvent the Wheel
 
 A peculiar kind of pride runs through the technology industry. Many leaders believe their problems are unique, their scale unprecedented, their requirements so specific that only a custom-built solution will do.
 This belief is also one of the most expensive mistakes your organization can make.
