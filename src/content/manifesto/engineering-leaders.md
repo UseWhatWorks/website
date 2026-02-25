@@ -50,8 +50,9 @@ Maintaining quality software requires time, money, and people. When organization
 Alternatively, rebuilding what already exists, multiplies cost and weakens outcomes.
 
 ### When Custom Makes Sense
-This is not absolutism. Legitimate cases exist for building custom solutions: when your requirements are unique, when existing options do not meet your needs, or when the problem is central to your business and you need complete control.
-But those cases are rarer than most technology organizations believe. The only honest question worth asking: should we build this ourselves?
+
+This is not absolute; there are exceptions. Legitimate cases exist for building custom solutions: when no off-the-shelf solution exists to solve your problem, or when the problem is central to your business, you need complete control in order to comply with regulations.
+But those cases are rarer than most technology organizations believe. The only question worth asking: should we build this ourselves?
 
 ### The Bottom Line
 Stop waste. Reduce risk. Focus your engineering talent on the problems that actually differentiate your business.
