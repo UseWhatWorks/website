@@ -45,7 +45,7 @@ Proven solutions come with documentation, case studies, and communities. When so
 
 ### The Sustainability Argument
 
-A broader consideration is at play here. Maintaining quality software costs money. When organizations cluster around proven solutions, maintenance costs are distributed across everyone who benefits. This creates sustainable systems that let even smaller organizations access enterprise-grade infrastructure.
+Maintaining quality software requires time, money, and people. When organizations cluster around proven solutions, maintenance costs are distributed across everyone who benefits. This creates sustainable systems that allow even smaller organisations access to enterprise-grade infrastructure.
 
 The alternative, where everyone builds their own, fragments effort, duplicates cost, and delivers worse outcomes.
 
