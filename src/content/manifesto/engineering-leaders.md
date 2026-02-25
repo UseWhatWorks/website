@@ -19,7 +19,7 @@ This is group of people having "people management" responsibilities over the eng
 Many leaders believe their problems are unique, their scale unprecedented, their requirements so specific that only a custom-built solution can work.
 This mindset will cost you more than any technology ever will.
 
-### The Hidden Cost of "Building It Ourselves"
+### The Hidden Cost of "Rolling Your Own"
 
 Every custom solution your team builds is one your team must maintain. Either forever, or until someone finally removes it, often years after the original developer has left. This leaves behind a legacy no one fully understands and everyone is afraid to touch.
 If you have spent any time in technology leadership, you have inherited one of these systems. You know the feeling: the documentation is sparse, the original author is unreachable, and the thing is somehow load-bearing for your entire operation.
