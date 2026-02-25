@@ -27,7 +27,7 @@ Ask yourself honestly: how much of your engineering budget goes toward solving p
 
 ### The "Use What Works" Philosophy
 
-The Use What Works manifesto offers a direct principle: organizations should use existing, proven, and sustainable solutions to common problems rather than developing and maintaining their own.
+The Use What Works manifesto is built on a guiding principle: organizations should use existing, proven, and sustainable solutions to common problems rather than developing and maintaining their own.
 This philosophy emerges from recognizing where your organization's differentiation actually lies.
 Your authentication system is probably not your competitive advantage. Neither is your deployment pipeline, your logging setup, or your database management tooling. These are solved problems. Teams whose entire focus is on solving them have solved them well.
 
