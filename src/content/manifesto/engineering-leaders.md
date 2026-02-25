@@ -47,7 +47,7 @@ Proven solutions come with documentation, case studies, and communities. When so
 
 Maintaining quality software requires time, money, and people. When organizations cluster around proven solutions, maintenance costs are distributed across everyone who benefits. This creates sustainable systems that allow even smaller organisations access to enterprise-grade infrastructure.
 
-The alternative, where everyone builds their own, fragments effort, duplicates cost, and delivers worse outcomes.
+Alternatively, rebuilding what already exists, multiplies cost and weakens outcomes.
 
 ### When Custom Makes Sense
 This is not absolutism. Legitimate cases exist for building custom solutions: when your requirements are unique, when existing options do not meet your needs, or when the problem is central to your business and you need complete control.
