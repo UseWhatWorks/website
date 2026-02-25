@@ -16,7 +16,7 @@ This is group of people having "people management" responsibilities over the eng
 
 ## The Case for "Use What Works": Why Tech Leaders Don't Reinvent the Wheel
 
-A peculiar kind of pride runs through the technology industry. Many leaders believe their problems are unique, their scale unprecedented, their requirements so specific that only a custom-built solution will do.
+Many leaders believe their problems are unique, their scale unprecedented, their requirements so specific that only a custom-built solution can work.
 This belief is also one of the most expensive mistakes your organization can make.
 
 ### The Hidden Cost of "Building It Ourselves"
