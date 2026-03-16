@@ -40,9 +40,9 @@ Flexibility prevents reinvention.
 
 ## Grow Your Bus Factor
 
-A project maintained by one person is fragile.
+A project that depends on a single individual is fragile. 
 
-Use revenue to bring in maintainers, improve documentation, and ensure continuity. Organizations evaluating dependencies will look for this.
+What happens if the maintainer (read: you) wins the lottery tomorrow and decides to retire? Use revenue to add maintainers, improve documentation, and ensure knowledge is shared. Companies evaluating software dependencies actively look for this because it signals that the project can survive beyond any single person.
 
 ## Support Smaller Teams
 
