@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Small Business Program - Use What Works">
+  <!-- Hero -->
+  <section class="py-16 sm:py-20 px-4 sm:px-6 text-center bg-gradient-to-br from-green-500/10 to-teal-500/10">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-6xl mb-6">🤝</div>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">
+        Small Business Program
+      </h1>
+      <p class="text-xl text-text-offset">
+        A model for making proven software accessible to organizations of every size.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-16 px-4 sm:px-6">
+    <article class="prose">
+      <h2>Program Overview</h2>
+      <p>
+        A Small Business Program supports early-stage and growing companies by offering discounted access to software and services, scaled according to their financial capacity.
+      </p>
+      <p>
+        Price should never be a barrier to adoption for organizations that genuinely cannot justify the expense. At the same time, larger organizations with the resources to pay should contribute to the sustainability of the tools they depend on.
+      </p>
+
+      <h2>Example Discount Model</h2>
+      <p>
+        The following table illustrates one approach to scaling discounts based on an organization's financials. Vendors are encouraged to adapt this to their own context.
+      </p>
+
+      <div class="overflow-x-auto my-8">
+        <table>
+          <thead>
+            <tr>
+              <th>Financial Range (USD)</th>
+              <th>Discount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0 - 1M</td><td>100%</td></tr>
+            <tr><td>1 - 2M</td><td>90%</td></tr>
+            <tr><td>2 - 3M</td><td>80%</td></tr>
+            <tr><td>3 - 4M</td><td>60%</td></tr>
+            <tr><td>4 - 5M</td><td>20%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <strong>Financials</strong> is defined as the larger of the organization's income, expenses, or assets in USD. The <strong>organization</strong> is the top-most entity which, directly or indirectly, controls all other entities that will use the software.
+      </p>
+
+      <h2>Why This Matters</h2>
+      <p>
+        A Small Business Program creates a fair exchange: startups and small teams get full access to proven infrastructure without financial strain, while the vendor builds a sustainable revenue base from organizations that can afford to pay. Everyone benefits from better-funded, better-maintained software.
+      </p>
+
+      <h2>For Vendors</h2>
+      <p>
+        If you maintain or sell software that others depend on, consider adopting a program like this. It removes the most common objection to commercial licensing ("we can't afford it") while preserving revenue from organizations that can. It also generates goodwill and broader adoption, which strengthens your ecosystem.
+      </p>
+
+      <h2>For Users</h2>
+      <p>
+        If a tool you rely on has a Small Business Program, make sure your organization takes advantage of it. If it does not, point the vendor to this page. And if your company has grown beyond the eligibility threshold, talk to your leadership about paying for the tools your team depends on.
+      </p>
+    </article>
+  </section>
+
+  <!-- Back Link -->
+  <section class="pb-16 px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto flex items-center">
+      <a href="/" class="inline-flex items-center text-primary hover:underline">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Back to home
+      </a>
+      <span class="mx-2 text-text-offset">|</span>
+      <a href="/for/open-source" class="text-primary hover:underline">Open Source</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .prose {
+    @apply max-w-3xl mx-auto;
+  }
+
+  .prose h2 {
+    @apply text-2xl sm:text-3xl font-bold mt-12 mb-6;
+  }
+
+  .prose h3 {
+    @apply text-lg font-semibold text-primary mb-2 mt-8;
+  }
+
+  .prose p {
+    @apply text-text-offset leading-relaxed mb-4;
+  }
+
+  .prose table {
+    @apply w-full border-collapse;
+  }
+
+  .prose th {
+    @apply px-6 py-3 text-left font-semibold border-b-2 border-border bg-background-offset;
+  }
+
+  .prose td {
+    @apply px-6 py-3 border-b border-border;
+  }
+
+  .prose tr:hover td {
+    @apply bg-background-offset;
+  }
+</style>
