@@ -6,42 +6,88 @@ gradient: "from-green-500/10 to-teal-500/10"
 discussion_id: 5
 ---
 
-Open source is the backbone of modern software. But 'free to use' was never meant to be 'free to sustain.' This page speaks to the two sides of the equation: the people building and maintaining open source projects, and the people and organizations relying on them.
+Open source is the backbone of modern software. But 'free to use' was never meant to mean 'free to sustain.'
+
+Healthy ecosystems depend on two things: people building reliable tools and organizations choosing to use them rather than rebuilding the same infrastructure again and again.
 
 ---
 
 # For Maintainers and Vendors
 
-You built something people depend on. That is valuable. Treat it accordingly.
+You built something people depend on. That has real value. Treat it accordingly.
 
 ## Commercialize Without Apology
 
-If your project solves real problems for real businesses, those businesses should be paying for it. Support contracts alone are rarely enough. Make licensing and commercial offerings part of your model. Sustainability requires revenue, not goodwill.
+If your project solves real problems for real organizations, those organizations should be paying for it. Support alone rarely sustains a project long-term. Sustainable software requires predictable revenue.
 
-When introducing a commercial model, do it thoughtfully. Start with the next major version and give the community a clear and fair transition. Software evolves, and long term sustainability is part of that evolution.
+When introducing a commercial model, start with the next major version and provide a clear transition path.
+
+## Reduce Reinvention
+
+Good open source removes the need for thousands of teams to build the same infrastructure.
+
+Authentication systems. Deployment tools. Data pipelines. Observability stacks. Messaging. Caching.
+
+Every reliable project that exists prevents countless internal frameworks from being written.
+
+## Design for Adaptation
+
+Teams often build their own tools because they think existing ones cannot adapt to their needs.
+
+Clear extension points, good documentation, and stable APIs allow teams to adapt a tool without rebuilding it.
+
+Flexibility prevents reinvention.
 
 ## Grow Your Bus Factor
 
-A project that depends on a single individual is a project at risk. Use revenue to hire, build a team, and ensure continuity. Organizations evaluating your project as a dependency will look at this, and they should.
+A project maintained by one person is fragile.
 
-## Have a Small Business Program
+Use revenue to bring in maintainers, improve documentation, and ensure continuity. Organizations evaluating dependencies will look for this.
 
-Not every user can pay full price. A [small business program](/small-business-program) ensures your project stays accessible to those who genuinely cannot justify the expense, while larger organizations contribute their fair share.
+## Support Smaller Teams
+
+Not every user can justify enterprise pricing. A [small business program](/small-business-program) keeps projects accessible while larger organizations contribute their share.
+
+Accessibility and sustainability can coexist.
 
 ---
 
 # For Users of Open Source
 
-You rely on open source every day. Here is how to be a good participant in the ecosystem.
+You rely on open source every day. Here is how to participate responsibly in the ecosystem.
 
-## Be Supportive When Projects Evolve
+## Prefer Existing Solutions
 
-You may have used a project for free for years. That was never a guarantee it would remain that way forever. When a project introduces paid licensing or commercial options, it is usually a step toward long term sustainability. Supporting that transition helps ensure the software you rely on continues to exist and improve.
+Before building infrastructure internally, ask a simple question:
 
-## Get Your Organization to Pay
+Does something already exist that solves this problem?
 
-If you work at a company that benefits from open source infrastructure, your company should be paying for it. Not sure how to convince your boss? Point them to the [business leaders](/for/business-leaders) section of this site.
+Mature tools contain years of production experience, edge cases, and operational knowledge. Using them means starting far ahead.
 
-## Champion Sustainability
+## Avoid the Internal Framework Spiral
 
-When your favorite project offers a [small business program](/small-business-program), point others to it. When it does not, ask them to consider one. You are part of the feedback loop that keeps the ecosystem healthy.
+Many internal frameworks begin as a small utility.
+
+Over time, they grow features, edge cases, integrations, and dependencies until they become critical infrastructure that only a few people understand.
+
+This is how organizations accidentally become maintainers of their own software platform.
+
+## Pay for What You Depend On
+
+If your company relies on open source infrastructure, your company should be contributing financially.
+
+This is not charity. It is paying for the reliability your business runs on.
+
+Not sure how to convince your boss? Point them to the [business leaders](/for/business-leaders) section of this site.
+
+## Support Sustainability
+
+Projects evolving their licensing or introducing commercial models are usually doing so to survive.
+
+Supporting those transitions keeps the tools you depend on healthy.
+
+## Advocate for the Ecosystem
+
+Encourage teams to adopt well-supported tools instead of building their own infrastructure.
+
+Every time an organization chooses to use what already works, the ecosystem gets stronger.
