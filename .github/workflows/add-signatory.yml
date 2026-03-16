@@ -1,0 +1,155 @@
+name: Add Signatory
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add-signatory:
+    if: contains(github.event.issue.labels.*.name, 'add-signature')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse and validate issue fields
+        id: parse
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || '';
+            const MAX_LENGTH = 50;
+
+            // Parse structured issue form fields
+            // GitHub issue forms render as "### Label\n\nValue\n\n"
+            function parseField(label) {
+              const regex = new RegExp(`### ${label}\\s*\\n\\n([^\\n]*?)\\s*(?:\\n###|$)`, 's');
+              const match = body.match(regex);
+              if (!match) return '';
+              const value = match[1].trim();
+              if (value === '_No response_' || value === 'None') return '';
+              return value;
+            }
+
+            const name = parseField('Name');
+            const title = parseField('Title');
+            const url = parseField('URL');
+            const org = parseField('Organization');
+
+            // Validate: name is required
+            if (!name) {
+              core.setFailed('Name field is required.');
+              return;
+            }
+
+            // Validate: max length
+            const fields = { name, title, url, org };
+            for (const [key, value] of Object.entries(fields)) {
+              if (value.length > MAX_LENGTH) {
+                core.setFailed(`Field "${key}" exceeds ${MAX_LENGTH} characters (got ${value.length}).`);
+                return;
+              }
+            }
+
+            // Validate: only safe characters (letters, numbers, common punctuation, spaces)
+            // This rejects shell metacharacters, YAML injection attempts, and control characters
+            const safePattern = /^[a-zA-Z0-9 _.,'()\/&@:+-]+$/;
+            for (const [key, value] of Object.entries(fields)) {
+              if (value && !safePattern.test(value)) {
+                core.setFailed(`Field "${key}" contains characters that are not allowed.`);
+                return;
+              }
+            }
+
+            // Validate: URL format if provided
+            if (url && !/^https?:\/\/[^\s"'<>]+$/.test(url)) {
+              core.setFailed('URL must start with http:// or https:// and contain no spaces or special characters.');
+              return;
+            }
+
+            core.setOutput('name', name);
+            core.setOutput('title', title);
+            core.setOutput('url', url);
+            core.setOutput('org', org);
+
+      - name: Comment on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: 'Could not process this signature request. Please check that all fields are filled in correctly, are under 50 characters, and that the URL (if provided) starts with `http://` or `https://`.'
+            });
+
+      - name: Add entry to signatories.yaml
+        if: success()
+        env:
+          SIGNATORY_NAME: ${{ steps.parse.outputs.name }}
+          SIGNATORY_TITLE: ${{ steps.parse.outputs.title }}
+          SIGNATORY_URL: ${{ steps.parse.outputs.url }}
+          SIGNATORY_ORG: ${{ steps.parse.outputs.org }}
+        run: |
+          npm install yaml
+
+          node -e '
+          const fs = require("fs");
+          const YAML = require("yaml");
+
+          const filePath = "src/data/signatories.yaml";
+          const content = fs.readFileSync(filePath, "utf-8");
+          const doc = YAML.parseDocument(content);
+
+          const signatories = doc.get("signatories");
+
+          // Build new entry
+          const entry = new YAML.YAMLMap();
+          entry.set("name", process.env.SIGNATORY_NAME);
+          if (process.env.SIGNATORY_TITLE) entry.set("title", process.env.SIGNATORY_TITLE);
+          if (process.env.SIGNATORY_URL) entry.set("url", process.env.SIGNATORY_URL);
+          if (process.env.SIGNATORY_ORG) entry.set("org", process.env.SIGNATORY_ORG);
+
+          // Insert alphabetically by name (case-insensitive)
+          const newName = process.env.SIGNATORY_NAME.toLowerCase();
+          let inserted = false;
+          for (let i = 0; i < signatories.items.length; i++) {
+            const item = signatories.items[i];
+            const existingName = (item.get("name") || "").toLowerCase();
+            if (newName < existingName) {
+              signatories.items.splice(i, 0, entry);
+              inserted = true;
+              break;
+            }
+          }
+          if (!inserted) signatories.items.push(entry);
+
+          // Preserve comment header by writing with the parsed document
+          fs.writeFileSync(filePath, doc.toString({ lineWidth: 0 }));
+          '
+
+      - name: Create pull request
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SIGNATORY_NAME: ${{ steps.parse.outputs.name }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          BRANCH="add-signatory/issue-${ISSUE_NUMBER}"
+          git checkout -b "$BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/signatories.yaml
+          git commit -m "Add signatory: ${SIGNATORY_NAME}"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "Add signatory: ${SIGNATORY_NAME}" \
+            --body "Adds ${SIGNATORY_NAME} to the manifesto signatories.
+
+          Closes #${ISSUE_NUMBER}" \
+            --base main \
+            --head "$BRANCH"
