@@ -7,7 +7,7 @@ export async function getStaticPaths() {
 
   // Filter out index.md and only get role pages
   const rolePages = manifestoEntries.filter(entry =>
-    entry.id !== 'index.md' && entry.data.emoji
+    entry.id !== 'index.md' && entry.id !== 'open-source.md' && entry.data.emoji
   );
 
   return rolePages.map(entry => ({
