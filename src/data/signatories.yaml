@@ -10,20 +10,25 @@
 #     url: https://your-website.com (optional)
 #     title: Your Title (optional)
 #     org: Your Organization (optional)
+#     github: your-github-handle (optional)
 
 signatories:
   # - name: Ada Lovelace
   #   url: https://example.com
   #   title: Software Engineer
   #   org: Example Corp
+  #   github: adalovelace
 
   - name: Chris 'Woody' Woodruff
     title: Fractional Architect
     url: https://woodruff.dev/
+    github: cwoodruff
   - name: Dylan Beattie
     title: Software Development Consultant
     url: https://dylanbeattie.net/
     org: Ursatile
+    github: dylanbeattie
   - name: Steve 'Ardalis' Smith
     title: Software Architect
     url: https://ardalis.com/
+    github: ardalis

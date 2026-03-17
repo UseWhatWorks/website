@@ -1,0 +1,42 @@
+name: Add Your Signature
+description: Sign the Use What Works Manifesto
+title: "Add signature: "
+labels: ["add-signature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for signing the Use What Works Manifesto!
+        Please fill in your details below. Only your name is required.
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: Your full name
+      placeholder: e.g. Jane Smith
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: Your job title (optional)
+      placeholder: e.g. Software Engineer
+    validations:
+      required: false
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Your personal website or profile URL (optional)
+      placeholder: e.g. https://example.com
+    validations:
+      required: false
+  - type: input
+    id: org
+    attributes:
+      label: Organization
+      description: Your organization or company (optional)
+      placeholder: e.g. Acme Corp
+    validations:
+      required: false
