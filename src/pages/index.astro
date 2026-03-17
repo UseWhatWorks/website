@@ -17,6 +17,7 @@ const signatoriesData = yaml.load(signatoriesFile) as { signatories: Array<{
   url?: string;
   title?: string;
   org?: string;
+  github?: string;
 }> };
 
 const signatories = signatoriesData.signatories || [];
@@ -109,23 +110,37 @@ const signatories = signatoriesData.signatories || [];
       <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
         {signatories.map((person) => (
           <li class="p-4 bg-background-offset rounded-lg border border-border hover:border-primary transition-colors">
-            {person.url ? (
-              <a
-                href={person.url}
-                target="_blank"
-                rel="noopener"
-                class="font-semibold text-primary hover:underline"
-              >
-                {person.name}
-              </a>
-            ) : (
-              <span class="font-semibold">{person.name}</span>
-            )}
-            {(person.title || person.org) && (
-              <p class="text-sm text-text-offset mt-1">
-                {person.title}{person.title && person.org && ' at '}{person.org}
-              </p>
-            )}
+            <div class="flex items-start gap-3">
+              {person.github && (
+                <img
+                  src={`https://github.com/${person.github}.png?size=64`}
+                  alt=""
+                  width="40"
+                  height="40"
+                  loading="lazy"
+                  class="rounded-full shrink-0 mt-0.5"
+                />
+              )}
+              <div>
+                {person.url ? (
+                  <a
+                    href={person.url}
+                    target="_blank"
+                    rel="noopener"
+                    class="font-semibold text-primary hover:underline"
+                  >
+                    {person.name}
+                  </a>
+                ) : (
+                  <span class="font-semibold">{person.name}</span>
+                )}
+                {(person.title || person.org) && (
+                  <p class="text-sm text-text-offset mt-1">
+                    {person.title}{person.title && person.org && ' at '}{person.org}
+                  </p>
+                )}
+              </div>
+            </div>
           </li>
         ))}
       </ul>
