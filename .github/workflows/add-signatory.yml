@@ -70,10 +70,13 @@ jobs:
               return;
             }
 
+            const github_handle = context.payload.issue.user.login;
+
             core.setOutput('name', name);
             core.setOutput('title', title);
             core.setOutput('url', url);
             core.setOutput('org', org);
+            core.setOutput('github', github_handle);
 
       - name: Comment on failure
         if: failure()
@@ -94,6 +97,7 @@ jobs:
           SIGNATORY_TITLE: ${{ steps.parse.outputs.title }}
           SIGNATORY_URL: ${{ steps.parse.outputs.url }}
           SIGNATORY_ORG: ${{ steps.parse.outputs.org }}
+          SIGNATORY_GITHUB: ${{ steps.parse.outputs.github }}
         run: |
           npm install yaml
 
@@ -111,8 +115,10 @@ jobs:
           const entry = new YAML.YAMLMap();
           entry.set("name", process.env.SIGNATORY_NAME);
           if (process.env.SIGNATORY_TITLE) entry.set("title", process.env.SIGNATORY_TITLE);
-          if (process.env.SIGNATORY_URL) entry.set("url", process.env.SIGNATORY_URL);
+          const url = process.env.SIGNATORY_URL || `https://github.com/${process.env.SIGNATORY_GITHUB}`;
+          entry.set("url", url);
           if (process.env.SIGNATORY_ORG) entry.set("org", process.env.SIGNATORY_ORG);
+          entry.set("github", process.env.SIGNATORY_GITHUB);
 
           // Insert alphabetically by name (case-insensitive)
           const newName = process.env.SIGNATORY_NAME.toLowerCase();
