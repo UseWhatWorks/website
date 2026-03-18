@@ -7,7 +7,7 @@ gradient: "from-blue-500/10 to-cyan-500/10"
 
 ## Developers
 
-You're the ones who own the code. Doesn't matter whether you wrote it by hand, installed it from a package, or supervised the AI tools that generated it; you got paid to create it, and that code is yours. You deploy it, you run it, you own it.
+You're the ones who own the code. Doesn't matter whether you wrote it by hand, copied it from Stack Overflow, or supervised the AI tools that generated it; you got paid for it, and that code is yours. You deploy it, you run it, you own it.
 
 ## Don't Build What You *Can* - Build What  You *Must*
 
@@ -36,13 +36,13 @@ Companies don't hire developers who know how to *build* a message bus. They hire
 
 Two developers interviewing for the same position. One of them built a .NET RabbitMQ client from scratch. It worked great... but their old company owns the code, and the IP. It's all locked away in private repositories, nothing is public; the hiring panel just has to take their word for it.
 
-The other developer also needed a key-value store - so they used EasyNetQ. When they hit limitations, they solved them and opened pull requests. Their code is public. They can show a hiring panel the commits, explain the reasoning behind them, link them to the discussion threads under the GitHub issues.
+The other developer also needed a RabbitMQ client - so they used EasyNetQ. When they hit limitations, they solved them, and submitted pull requests. Their code is public. They can show a hiring panel the commits, explain the reasoning behind them, link them to the discussion threads under the GitHub issues.
 
 Which one do you think is going to get hired?
 
 ## If You Can't Sell It, Buy It
 
-Every release, every line of code, every day that you and your team are working on stuff, you should be building **things you can sell.** Call them what you want: strategic differentiators, special sauce... the stuff your customers can't get anywhere else. Customers aren't dealing with you because you've got a fantastic login system, or a really cool message bus. They're dealing with you because you're the best place to go to find acting jobs, or to research conference venues, or to buy machine tools. If you want your dev teams focused on the special sauce, everything else has to be as ordinary, as predictable, as *boring* as possible. You need usernames, passwords, identity management? That's a solved problem. You need to synchronise data across multiple regions and time zones? That's a solved problem. You want resilient messaging? *That's a solved problem.*
+Every release, every line of code, every day that you and your team are working on stuff, you should be building **things you can sell.** The special sauce. The strategic differentiator. The stuff your customers can't get anywhere else. Customers aren't dealing with you because you've got a fantastic login system, or a really sweet message bus. They're dealing with you because you're the best place to go to find acting jobs, or to buy concert tickets, or to find machine tools. If you want your dev teams focused on the special sauce, everything else has to be as ordinary, as predictable, as *boring* as possible. You need usernames, passwords, identity management? That's a solved problem. You need to synchronise data across multiple regions and time zones? That's a solved problem. You want resilient messaging? *That's a solved problem.*
 
 ## Think About Opportunity Cost
 
@@ -56,7 +56,7 @@ If all you see are two dozen .NET projects with namespaces like `MyCompany.Data.
 
 If you see a list of familiar services, names like AutoMapper, IdentityServer, NServiceBus, MassTransit? That's a good day. You know those projects. And so do a whole lot of other people.
 
-If it turns out there are paid support contracts & maintenance agreements for those dependencies? That's a *great* day. It means **somebody else knows what's going on, they're getting paid to care about your problems, and they're ready to help if you need it** - and you get to focus on the special sauce.
+And when it turns out there are paid support contracts & maintenance agreements for those dependencies? That's a *great* day. It means **somebody else knows what's going on, they're getting paid to care about your problems, and they're ready to help if you need it** - and you get to focus on the special sauce.
 
 That's what Use What Works is all about: the freedom to focus on building the thing that matters, the thing folks can't get from anybody else.
 
