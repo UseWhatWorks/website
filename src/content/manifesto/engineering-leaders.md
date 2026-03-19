@@ -6,57 +6,30 @@ gradient: "from-purple-500/10 to-pink-500/10"
 discussion_id: 2
 ---
 
-# Engineering management
+You already know what good engineering looks like. The challenge is protecting your team's time and making sure the foundations they build on will still be there in five years.
 
-This is group of people having "people management" responsibilities over the engineering function in an organization.
+## Your Team Should Be Working on What Differentiates Your Business
 
-## Responsibilities
+Every hour spent rebuilding authentication, deployment pipelines, or messaging infrastructure is an hour not spent on the product. Proven solutions let your engineers focus on value creation instead of infrastructure reinvention.
 
-* Fostering an environment with systems and processes that allow for a continued flow of sustainable work even as people come and go from the organization. This serves the overall need to [manage risk](/messaging/stakeholders/organization-management.md#managing-risk).
+## Turnover Is Inevitable. Plan for It.
 
-## The Case for "Use What Works": Why Tech Leaders Don't Reinvent the Wheel
+People leave. When they do, who maintains the custom solution they built? Their documentation reflects their assumptions and their understanding.
 
-Many leaders believe their problems are unique, their scale unprecedented, their requirements so specific that only a custom-built solution can work.
-This mindset will cost you more than any technology ever will.
+Established tools come with community knowledge, third-party documentation, and a hiring pool of people who already know how they work. Custom internal frameworks come with none of that.
 
-### The Hidden Cost of "Rolling Your Own"
+## Want Your Dependencies Well-Funded
 
-Every custom solution your team builds is one they must maintain. Either forever, or until someone finally removes it, often years after the original developer has left. This leaves behind a legacy no one fully understands, and everyone is afraid to touch.
-If you have spent any time in technology leadership, you have inherited one of these systems. You know the feeling: the documentation is sparse, the original author is unreachable, and the thing is somehow load-bearing for your entire operation.
-Ask yourself honestly: how much of your engineering budget goes toward solving problems that someone else has already solved?
+A critical dependency maintained by a single person is a risk. You want the tools your team relies on to have a bus factor larger than one: a funded team, a growing community, predictable revenue to keep the lights on.
 
-### The "Use What Works" Philosophy
+When you pay for proven solutions, you are not just buying software. You are buying continuity.
 
-The Use What Works manifesto is built on a guiding principle: organizations should use existing, proven, and sustainable solutions to common problems rather than developing and maintaining their own.
-This philosophy comes from understanding what truly makes your organization different — and what doesn’t. It asks a simple question: where do you actually create unique value, and where are you simply rebuilding what everyone else already has?
-Your authentication system is probably not your competitive advantage. Neither is your deployment pipeline, your logging setup, or your database management tooling. These are solved problems. Teams whose entire focus is on solving them have solved them well.
+## Predictability Reduces Risk
 
-### Five Reasons This Matters for Your Business
+Proven solutions come with documentation, case studies, and communities. When something breaks at 2 AM, there is a forum thread, a support agreement, or a consultant who has seen it before.
 
-1. **Your strongest engineers should be working on what differentiates your business.**
-Every hour a talented developer spends building a custom caching layer is an hour not spent on features that differentiate your product. Proven solutions let your team focus on value creation instead of infrastructure reinvention.
+Your custom solution has none of these. Just an on-call engineer reading code they did not write.
 
-3. **Turnover Is Inevitable. Plan for It.**
-People leave. When they do, who maintains the custom solution they built? If documented, it reflects their style, assumptions, and understanding. Established technologies come with community knowledge, third-party documentation, and a hiring pool of people who already know how they work.Beats Theoretically Elegant
+## Bugs Get Found Faster at Scale
 
-5. **"Given enough eyeballs, all bugs are shallow." - Linus' Law**
-Software deployed across thousands of organizations and at every imaginable scale has already encountered — and resolved — problems your custom solution hasn’t even discovered yet. You benefit from the collective experience of an entire community.
-
-7. **Predictability Reduces Risk**
-Proven solutions come with documentation, case studies, and communities. When something breaks at 2 AM, there is likely a forum thread, a support agreement, or a consultant who has seen it before. Your custom solution has none of these. Just an on-call engineer reading code they did not write.
-
-### The Sustainability Argument
-
-Maintaining quality software requires time, money, and people. When organizations cluster around proven solutions, maintenance costs are distributed across everyone who benefits. This creates sustainable systems that allow even smaller organisations access to enterprise-grade infrastructure.
-
-Alternatively, rebuilding what already exists, multiplies cost and weakens outcomes.
-
-### When Custom Makes Sense
-
-This is not absolute; there are exceptions. Legitimate cases exist for building custom solutions: when no off-the-shelf solution exists to solve your problem, or when the problem is central to your business, you need complete control in order to comply with regulations.
-But those cases are rarer than most technology organizations believe. The only question worth asking: should we build this ourselves?
-
-### The Bottom Line
-Stop waste. Reduce risk. Focus your engineering talent on the problems that actually differentiate your business.
-Use what works.
-
+Software deployed across thousands of organizations has already encountered problems your custom solution has not even discovered yet. You benefit from the collective experience of an entire community, without paying for the lessons individually.
