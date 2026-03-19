@@ -5,42 +5,30 @@ emoji: "👩‍💻"
 gradient: "from-blue-500/10 to-cyan-500/10"
 ---
 
-# For Users of Open Source
+You rely on open source every day. You already know it works. The challenge is usually everything around it: getting buy-in, resisting the urge to rebuild, and making sure the tools you depend on stick around.
 
-You rely on open source every day. Here is how to participate responsibly in the ecosystem.
+## Does Something Already Exist?
 
-## Prefer Existing Solutions
+Before building infrastructure internally, ask this first. Chances are, someone already solved this problem years ago.
 
-Before building infrastructure internally, ask a simple question:
+Mature tools carry years of production experience, edge cases, and operational knowledge baked in. Using them means starting far ahead of where any internal project would begin.
 
-Does something already exist that solves this problem?
+## How Hard Could It Be?
 
-Mature tools contain years of production experience, edge cases, and operational knowledge. Using them means starting far ahead.
+It always starts small. A little utility, a thin wrapper, a "quick" internal tool.
 
-## Avoid the Internal Framework Spiral
+Then it grows. Features, edge cases, integrations, dependencies. Before long, it is critical infrastructure that only a few people understand. And now your organization is accidentally maintaining its own software platform.
 
-Many internal frameworks begin as a small utility.
+The answer to "how hard could it be?" is almost always: harder than you think, and for longer than you expect.
 
-Over time, they grow features, edge cases, integrations, and dependencies until they become critical infrastructure that only a few people understand.
+## Convince Your Boss
 
-This is how organizations accidentally become maintainers of their own software platform.
+You already know the tools your team should be using. The hard part is getting approval to pay for them.
 
-## Pay for What You Depend On
+Frame it in terms your manager or client cares about: reduced risk, faster delivery, lower maintenance costs. Point them to the [business leaders](/for/business-leaders) section of this site for the full argument.
 
-If your company relies on open source infrastructure, your company should be contributing financially.
+## Support the Transition
 
-This is not charity. It is paying for the reliability your business runs on.
+When projects evolve their licensing or introduce commercial models, they are usually doing so to survive. That is not a betrayal; it is the cost of sustainability.
 
-Not sure how to convince your boss? Point them to the [business leaders](/for/business-leaders) section of this site.
-
-## Support Sustainability
-
-Projects evolving their licensing or introducing commercial models are usually doing so to survive.
-
-Supporting those transitions keeps the tools you depend on healthy.
-
-## Advocate for the Ecosystem
-
-Encourage teams to adopt well-supported tools instead of building their own infrastructure.
-
-Every time an organization chooses to use what already works, the ecosystem gets stronger.
+Supporting those transitions keeps the tools you depend on healthy and maintained.
