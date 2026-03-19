@@ -20,7 +20,7 @@ roles:
     gradient: "from-orange-500 to-red-500"
     link: "/for/business-leaders"
     description: "Understand how budgets and approval processes nudge technical groups into wasteful territory."
-  - title: "Open Source"
+  - title: "Software Vendors & Maintainers"
     emoji: "🌱"
     tagline: "Sustaining the software the world runs on"
     gradient: "from-green-500 to-teal-500"
