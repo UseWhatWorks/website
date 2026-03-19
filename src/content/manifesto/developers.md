@@ -3,23 +3,44 @@ title: "For Developers"
 tagline: "Building the future with proven tools"
 emoji: "👩‍💻"
 gradient: "from-blue-500/10 to-cyan-500/10"
-discussion_id: 1
 ---
 
-# Individual developers
+# For Users of Open Source
 
-This is the group of people writing and maintaining the software for the organization.
+You rely on open source every day. Here is how to participate responsibly in the ecosystem.
 
-## Responsibilities
+## Prefer Existing Solutions
 
-TBD
+Before building infrastructure internally, ask a simple question:
 
-## Desires
+Does something already exist that solves this problem?
 
-### Career security and development
+Mature tools contain years of production experience, edge cases, and operational knowledge. Using them means starting far ahead.
 
-While often confused with [job security](https://en.wikipedia.org/wiki/Job_security), career security is different. Many professionals are more interested in having a certain baseline level of "security" for their career as a whole. People have seen enough companies go bankrupt or experience massive layoffs, often taking what was previously a secure role along with it.
+## Avoid the Internal Framework Spiral
 
-Some techniques that can be effective for this include:
+Many internal frameworks begin as a small utility.
 
-#### Developing transferable and in-demand knowledge and skills
+Over time, they grow features, edge cases, integrations, and dependencies until they become critical infrastructure that only a few people understand.
+
+This is how organizations accidentally become maintainers of their own software platform.
+
+## Pay for What You Depend On
+
+If your company relies on open source infrastructure, your company should be contributing financially.
+
+This is not charity. It is paying for the reliability your business runs on.
+
+Not sure how to convince your boss? Point them to the [business leaders](/for/business-leaders) section of this site.
+
+## Support Sustainability
+
+Projects evolving their licensing or introducing commercial models are usually doing so to survive.
+
+Supporting those transitions keeps the tools you depend on healthy.
+
+## Advocate for the Ecosystem
+
+Encourage teams to adopt well-supported tools instead of building their own infrastructure.
+
+Every time an organization chooses to use what already works, the ecosystem gets stronger.
