@@ -3,23 +3,32 @@ title: "For Developers"
 tagline: "Building the future with proven tools"
 emoji: "👩‍💻"
 gradient: "from-blue-500/10 to-cyan-500/10"
-discussion_id: 1
 ---
 
-# Individual developers
+You rely on open source every day. You already know it works. The challenge is usually everything around it: getting buy-in, resisting the urge to rebuild, and making sure the tools you depend on stick around.
 
-This is the group of people writing and maintaining the software for the organization.
+## Does Something Already Exist?
 
-## Responsibilities
+Before building infrastructure internally, ask this first. Chances are, someone already solved this problem years ago.
 
-TBD
+Mature tools carry years of production experience, edge cases, and operational knowledge baked in. Using them means starting far ahead of where any internal project would begin.
 
-## Desires
+## How Hard Could It Be?
 
-### Career security and development
+It always starts small. A little utility, a thin wrapper, a "quick" internal tool.
 
-While often confused with [job security](https://en.wikipedia.org/wiki/Job_security), career security is different. Many professionals are more interested in having a certain baseline level of "security" for their career as a whole. People have seen enough companies go bankrupt or experience massive layoffs, often taking what was previously a secure role along with it.
+Then it grows. Features, edge cases, integrations, dependencies. Before long, it is critical infrastructure that only a few people understand. And now your organization is accidentally maintaining its own software platform.
 
-Some techniques that can be effective for this include:
+The answer to "how hard could it be?" is almost always: harder than you think, and for longer than you expect.
 
-#### Developing transferable and in-demand knowledge and skills
+## Convince Your Boss
+
+You already know the tools your team should be using. The hard part is getting approval to pay for them.
+
+Frame it in terms your manager or client cares about: reduced risk, faster delivery, lower maintenance costs. Point them to the [business leaders](/for/business-leaders) section of this site for the full argument.
+
+## Support the Transition
+
+When projects evolve their licensing or introduce commercial models, they are usually doing so to survive. That is not a betrayal; it is the cost of sustainability.
+
+Supporting those transitions keeps the tools you depend on healthy and maintained.
