@@ -4,8 +4,9 @@ import ThemeToggle from './ThemeToggle.astro';
 
 <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
   <nav class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-    <a href="/" class="text-lg font-bold text-text hover:text-primary transition-colors">
-      #UseWhatWorks
+    <a href="/" class="flex items-center">
+      <img src="/usewhatworks-light.svg" alt="#UseWhatWorks" class="h-10 block dark:hidden" />
+      <img src="/usewhatworks-dark.svg" alt="#UseWhatWorks" class="h-10 hidden dark:block" />
     </a>
     <div class="flex items-center gap-4">
       <a
