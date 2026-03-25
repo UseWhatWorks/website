@@ -6,7 +6,7 @@ import { remarkDiscuss } from './src/plugins/remark-discuss.mjs';
 import { remarkMdLinks } from './src/plugins/remark-md-links.mjs';
 
 export default defineConfig({
-  site: 'https://usewhatworks.dev',
+  site: 'https://usewhatworks.org',
   integrations: [tailwind()],
   markdown: {
     remarkPlugins: [remarkDiscuss, remarkMdLinks],
