@@ -122,19 +122,8 @@ jobs:
           if (process.env.SIGNATORY_ORG) entry.set("org", process.env.SIGNATORY_ORG);
           entry.set("github", process.env.SIGNATORY_GITHUB);
 
-          // Insert alphabetically by name (case-insensitive)
-          const newName = process.env.SIGNATORY_NAME.toLowerCase();
-          let inserted = false;
-          for (let i = 0; i < signatories.items.length; i++) {
-            const item = signatories.items[i];
-            const existingName = (item.get("name") || "").toLowerCase();
-            if (newName < existingName) {
-              signatories.items.splice(i, 0, entry);
-              inserted = true;
-              break;
-            }
-          }
-          if (!inserted) signatories.items.push(entry);
+          // Append to end (newest signatories last)
+          signatories.items.push(entry);
 
           // Preserve comment header by writing with the parsed document
           fs.writeFileSync(filePath, doc.toString({ lineWidth: 0 }));
