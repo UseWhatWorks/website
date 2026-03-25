@@ -14,6 +14,8 @@ jobs:
       issues: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Parse and validate issue fields
         id: parse
@@ -151,7 +153,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/data/signatories.yaml
           git commit -m "Add signatory: ${SIGNATORY_NAME}"
-          git push --force origin "$BRANCH"
+          git push origin --delete "$BRANCH" 2>/dev/null || true
+          git push origin "$BRANCH"
           gh pr create \
             --title "Add signatory: ${SIGNATORY_NAME}" \
             --body "Adds ${SIGNATORY_NAME} to the manifesto signatories.
