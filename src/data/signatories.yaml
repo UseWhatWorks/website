@@ -19,6 +19,10 @@ signatories:
   #   org: Example Corp
   #   github: adalovelace
 
+  - name: Adam Wright
+    title: Software Engineer
+    url: https://github.com/awright18
+    github: awright18
   - name: Chris 'Woody' Woodruff
     title: Fractional Architect
     url: https://woodruff.dev/
