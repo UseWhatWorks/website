@@ -10,7 +10,7 @@ const { url, text, class: className } = Astro.props;
 const encodedUrl = encodeURIComponent(url);
 const encodedText = encodeURIComponent(text);
 
-const twitterHref = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}&hashtags=UseWhatWorks`;
+const twitterHref = `https://x.com/intent/tweet?text=${encodedText}&url=${encodedUrl}&hashtags=UseWhatWorks`;
 const linkedinHref = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
 const blueskyHref = `https://bsky.app/intent/compose?text=${encodedText} ${encodedUrl}`;
 ---
