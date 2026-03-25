@@ -69,6 +69,13 @@ const { Content } = await content.render();
     @apply max-w-3xl mx-auto;
   }
 
+  .prose :global(h1),
+  .prose :global(h2),
+  .prose :global(h3),
+  .prose :global(h4) {
+    @apply relative;
+  }
+
   .prose :global(h1) {
     @apply text-3xl sm:text-4xl font-bold mb-6;
   }
@@ -83,6 +90,27 @@ const { Content } = await content.render();
 
   .prose :global(h4) {
     @apply text-base font-semibold mb-2 mt-6;
+  }
+
+  .prose :global(.heading-anchor) {
+    @apply absolute no-underline opacity-0 transition-opacity;
+    left: -1.5em;
+    text-decoration: none !important;
+  }
+
+  .prose :global(h1:hover .heading-anchor),
+  .prose :global(h2:hover .heading-anchor),
+  .prose :global(h3:hover .heading-anchor),
+  .prose :global(h4:hover .heading-anchor) {
+    @apply opacity-50;
+  }
+
+  .prose :global(.heading-anchor:hover) {
+    @apply opacity-100 !important;
+  }
+
+  .prose :global(.anchor-icon) {
+    @apply text-primary;
   }
 
   .prose :global(p) {
