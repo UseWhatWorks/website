@@ -1,0 +1,61 @@
+# Resources that shaped Use What Works
+#
+# To add a resource, append an entry to the appropriate section.
+#
+# Format:
+#   - title: Resource Title
+#     author: Author Name
+#     description: Brief description
+#     url: https://link-to-resource
+#     featured: true  (optional, shows on the homepage teaser)
+#
+# Types: articles, talks
+
+articles:
+  - title: Choose Boring Technology
+    author: Dan McKinley
+    description: The seminal talk on why you should pick proven, well-understood tools and spend your innovation tokens wisely.
+    url: https://mcfunley.com/choose-boring-technology
+    featured: true
+
+  - title: "Build or Adopt? Stop Building Your Own Plumbing"
+    author: Shawn Wildermuth
+    description: Why building your own infrastructure is almost always the wrong call, and how to recognize when you're doing it.
+    url: https://blog.wildermuth.com/2025/03/17/build-or-adopt--stop-building-your-own-plumbing/
+    featured: true
+
+  - title: "Don't Reinvent the Wheel, Unless You Plan on Learning More About Wheels"
+    author: Jeff Atwood
+    description: Challenges the blanket advice and offers a nuanced take on where reinvention helps and where it hurts.
+    url: https://blog.codinghorror.com/dont-reinvent-the-wheel-unless-you-plan-on-learning-more-about-wheels/
+
+  - title: Seven Deadly Sins of Programming
+    author: Eric Gunnerson
+    description: "Sin #1: building custom data access layers instead of using mature, well-supported tools."
+    url: https://blogs.msdn.microsoft.com/ericgu/2007/02/01/seven-deadly-sins-of-programming-sin-1/
+
+  - title: "Selecting Third-Party Libraries: The Practitioners' Perspective"
+    author: Academic study
+    description: 26 factors developers consider when choosing a library. A practical guide on when to build vs. buy.
+    url: https://arxiv.org/abs/2005.12574
+
+talks:
+  - title: Build v/s Buy
+    author: Todd Gardner
+    description: A clear-headed walkthrough of how to make the build-or-buy decision without letting ego drive it.
+    url: https://www.youtube.com/watch?v=wjcuhMXuULY
+    featured: true
+
+  - title: Choose Boring Technology (talk)
+    author: Dan McKinley
+    description: The conference talk version of the famous essay, with worked examples and audience Q&A.
+    url: https://boringtechnology.club/
+
+  - title: Making Better Build vs Buy Decisions
+    author: Chris Bell
+    description: Practical decision framework presented at LeadDev New York 2024.
+    url: https://www.youtube.com/watch?v=sGOamUc0zM0
+
+quote:
+  text: "For every dev who thinks 'I could build this $30/month SaaS myself instead of paying for it' - the best thing you can do IS to build it! You learn 1. How much work it is (just for the base case) 2. Edge cases the SaaS silently takes care of 3. The cost (+pain!) of maintenance"
+  author: Gergely Orosz

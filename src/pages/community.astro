@@ -1,70 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import yaml from 'js-yaml';
+import fs from 'node:fs';
+import path from 'node:path';
 
-const resources = [
-  {
-    title: "Choose Boring Technology",
-    author: "Dan McKinley",
-    description: "The seminal talk on why you should pick proven, well-understood tools and spend your innovation tokens wisely.",
-    url: "https://mcfunley.com/choose-boring-technology",
-    type: "article",
-  },
-  {
-    title: "Build or Adopt? Stop Building Your Own Plumbing",
-    author: "Shawn Wildermuth",
-    description: "Why building your own infrastructure is almost always the wrong call, and how to recognize when you're doing it.",
-    url: "https://blog.wildermuth.com/2025/03/17/build-or-adopt--stop-building-your-own-plumbing/",
-    type: "article",
-  },
-  {
-    title: "Don't Reinvent the Wheel, Unless You Plan on Learning More About Wheels",
-    author: "Jeff Atwood",
-    description: "Challenges the blanket advice and offers a nuanced take on where reinvention helps and where it hurts.",
-    url: "https://blog.codinghorror.com/dont-reinvent-the-wheel-unless-you-plan-on-learning-more-about-wheels/",
-    type: "article",
-  },
-  {
-    title: "Seven Deadly Sins of Programming",
-    author: "Eric Gunnerson",
-    description: "Sin #1: building custom data access layers instead of using mature, well-supported tools.",
-    url: "https://blogs.msdn.microsoft.com/ericgu/2007/02/01/seven-deadly-sins-of-programming-sin-1/",
-    type: "article",
-  },
-  {
-    title: "Selecting Third-Party Libraries: The Practitioners' Perspective",
-    author: "Academic study",
-    description: "26 factors developers consider when choosing a library. A practical guide on when to build vs. buy.",
-    url: "https://arxiv.org/abs/2005.12574",
-    type: "article",
-  },
-  {
-    title: "Build v/s Buy",
-    author: "Todd Gardner",
-    description: "A clear-headed walkthrough of how to make the build-or-buy decision without letting ego drive it.",
-    url: "https://www.youtube.com/watch?v=wjcuhMXuULY",
-    type: "talk",
-  },
-  {
-    title: "Choose Boring Technology (talk)",
-    author: "Dan McKinley",
-    description: "The conference talk version of the famous essay, with worked examples and audience Q&A.",
-    url: "https://boringtechnology.club/",
-    type: "talk",
-  },
-  {
-    title: "Making Better Build vs Buy Decisions",
-    author: "Chris Bell",
-    description: "Practical decision framework presented at LeadDev New York 2024.",
-    url: "https://www.youtube.com/watch?v=sGOamUc0zM0",
-    type: "talk",
-  },
-];
+const resourcesPath = path.join(process.cwd(), 'src/data/resources.yaml');
+const resourcesFile = fs.readFileSync(resourcesPath, 'utf-8');
+const data = yaml.load(resourcesFile) as {
+  articles: Array<{ title: string; author: string; description: string; url: string; featured?: boolean }>;
+  talks: Array<{ title: string; author: string; description: string; url: string; featured?: boolean }>;
+  quote: { text: string; author: string };
+};
 
-const articles = resources.filter(r => r.type === "article");
-const talks = resources.filter(r => r.type === "talk");
-
-// Featured items shown on the homepage teaser (exported for reuse isn't possible in Astro pages,
-// so the homepage will define its own subset)
+const articles = data.articles || [];
+const talks = data.talks || [];
+const quote = data.quote;
 ---
 
 <Layout title="Community - Use What Works">
@@ -120,17 +70,19 @@ const talks = resources.filter(r => r.type === "talk");
     </div>
   </section>
 
-  <!-- Gergely Orosz quote -->
-  <section class="pb-16 px-4 sm:px-6">
-    <div class="max-w-4xl mx-auto">
-      <div class="p-8 bg-background-offset rounded-xl border border-border">
-        <blockquote class="text-text-offset italic leading-relaxed">
-          "For every dev who thinks 'I could build this $30/month SaaS myself instead of paying for it' &mdash; the best thing you can do IS to build it! You learn 1. How much work it is (just for the base case) 2. Edge cases the SaaS silently takes care of 3. The cost (+pain!) of maintenance"
-        </blockquote>
-        <p class="mt-4 text-sm font-semibold">Gergely Orosz</p>
+  <!-- Quote -->
+  {quote && (
+    <section class="pb-16 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="p-8 bg-background-offset rounded-xl border border-border">
+          <blockquote class="text-text-offset italic leading-relaxed">
+            "{quote.text}"
+          </blockquote>
+          <p class="mt-4 text-sm font-semibold">{quote.author}</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   <!-- Back + Discussion -->
   <section class="pb-16 px-4 sm:px-6">
