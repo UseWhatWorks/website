@@ -21,6 +21,16 @@ const signatoriesData = yaml.load(signatoriesFile) as { signatories: Array<{
 }> };
 
 const signatories = signatoriesData.signatories || [];
+
+// Load resources
+const resourcesPath = path.join(process.cwd(), 'src/data/resources.yaml');
+const resourcesFile = fs.readFileSync(resourcesPath, 'utf-8');
+const resourcesData = yaml.load(resourcesFile) as {
+  articles: Array<{ title: string; author: string; url: string; featured?: boolean }>;
+  talks: Array<{ title: string; author: string; url: string; featured?: boolean }>;
+};
+const allResources = [...(resourcesData.articles || []), ...(resourcesData.talks || [])];
+const featured = allResources.filter(r => r.featured);
 ---
 
 <Layout title="Use What Works - Choose proven solutions over building from scratch">
@@ -86,6 +96,34 @@ const signatories = signatoriesData.signatories || [];
                 </svg>
               </div>
             </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Teaser -->
+  <section class="pb-16 pt-4 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-baseline justify-between mb-8">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold">Further Reading</h2>
+          <p class="text-text-offset mt-1">Articles and talks that shaped Use What Works.</p>
+        </div>
+        <a href="/community" class="text-primary hover:underline text-sm font-semibold shrink-0 ml-4">
+          View all &rarr;
+        </a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {featured.map((resource) => (
+          <a
+            href={resource.url}
+            target="_blank"
+            rel="noopener"
+            class="group p-5 bg-background-offset rounded-xl border border-border hover:border-primary transition-colors"
+          >
+            <h3 class="font-bold text-sm group-hover:text-primary transition-colors">{resource.title}</h3>
+            <p class="text-xs text-primary mt-1">{resource.author}</p>
           </a>
         ))}
       </div>

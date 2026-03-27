@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import yaml from 'js-yaml';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const resourcesPath = path.join(process.cwd(), 'src/data/resources.yaml');
+const resourcesFile = fs.readFileSync(resourcesPath, 'utf-8');
+const data = yaml.load(resourcesFile) as {
+  articles: Array<{ title: string; author: string; description: string; url: string; featured?: boolean }>;
+  talks: Array<{ title: string; author: string; description: string; url: string; featured?: boolean }>;
+  quote: { text: string; author: string };
+};
+
+const articles = data.articles || [];
+const talks = data.talks || [];
+const quote = data.quote;
+---
+
+<Layout title="Community - Use What Works">
+  <!-- Hero -->
+  <section class="py-16 sm:py-20 px-4 sm:px-6 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">Community</h1>
+      <p class="text-xl text-text-offset">
+        Articles, videos, and discussions that shaped Use What Works.
+      </p>
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section class="pb-16 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-8">Articles</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {articles.map((resource) => (
+          <a
+            href={resource.url}
+            target="_blank"
+            rel="noopener"
+            class="group p-6 bg-background-offset rounded-xl border border-border hover:border-primary transition-colors"
+          >
+            <h3 class="font-bold mb-1 group-hover:text-primary transition-colors">{resource.title}</h3>
+            <p class="text-sm text-primary mb-3">{resource.author}</p>
+            <p class="text-sm text-text-offset leading-relaxed">{resource.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Talks -->
+  <section class="pb-16 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-8">Videos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {talks.map((resource) => (
+          <a
+            href={resource.url}
+            target="_blank"
+            rel="noopener"
+            class="group p-6 bg-background-offset rounded-xl border border-border hover:border-primary transition-colors"
+          >
+            <h3 class="font-bold mb-1 group-hover:text-primary transition-colors">{resource.title}</h3>
+            <p class="text-sm text-primary mb-3">{resource.author}</p>
+            <p class="text-sm text-text-offset leading-relaxed">{resource.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  {quote && (
+    <section class="pb-16 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="p-8 bg-background-offset rounded-xl border border-border">
+          <blockquote class="text-text-offset italic leading-relaxed">
+            "{quote.text}"
+          </blockquote>
+          <p class="mt-4 text-sm font-semibold">{quote.author}</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Back + Discussion -->
+  <section class="pb-16 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto flex items-center">
+      <a href="/" class="inline-flex items-center text-primary hover:underline">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Back to home
+      </a>
+      <span class="mx-2 text-text-offset">|</span>
+      <a
+        href="https://github.com/orgs/UseWhatWorks/discussions/"
+        target="_blank"
+        rel="noopener"
+        class="text-primary hover:underline"
+      >
+        Join the discussion
+      </a>
+    </div>
+  </section>
+</Layout>
