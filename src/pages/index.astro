@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ShareButtons from '../components/ShareButtons.astro';
 import { getEntry } from 'astro:content';
 import yaml from 'js-yaml';
 import fs from 'node:fs';
@@ -195,6 +196,12 @@ const featured = allResources.filter(r => r.featured);
         >
           Add Your Signature
         </a>
+        <p class="text-text-offset text-sm mt-4 mb-2">or spread the word</p>
+        <ShareButtons
+          url="https://usewhatworks.org"
+          text="Use What Works: Choose proven solutions over building from scratch."
+          class="justify-center"
+        />
       </div>
     </div>
   </section>
