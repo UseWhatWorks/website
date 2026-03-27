@@ -3,7 +3,6 @@ title: "For Business Leaders"
 tagline: "Stop waste and reduce risk"
 emoji: "🎯"
 gradient: "from-orange-500/10 to-red-500/10"
-discussion_id: 3
 ---
 
 You can see every vendor bill that crosses your desk. What you cannot see is the cost of not paying it.

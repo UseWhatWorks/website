@@ -3,7 +3,6 @@ title: "For Engineering Leaders"
 tagline: "Guiding teams to sustainable success"
 emoji: "🧭"
 gradient: "from-purple-500/10 to-pink-500/10"
-discussion_id: 2
 ---
 
 You already know what good engineering looks like. The challenge is protecting your team's time and making sure the foundations they build on will still be there in five years.
