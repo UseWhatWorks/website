@@ -34,3 +34,15 @@ Multiple vendor licenses at $20,000-$30,000 each still cost less than the develo
 When your business depends on a piece of software, you want it maintained by a funded team, not a single individual. A well-funded dependency with a growing community and predictable revenue is a safer bet than a free tool that could be abandoned tomorrow.
 
 Paying for critical dependencies is not an expense. It is risk management.
+
+<DiscussionSection>
+
+## Join the  Discussions
+
+- [Vendor costs can grow significantly at scale?](https://github.com/orgs/UseWhatWorks/discussions/9)
+
+- [What do we do when existing solutions don't solve our problem?](https://github.com/orgs/UseWhatWorks/discussions/10)
+
+- [Start a new Discussion](https://github.com/orgs/UseWhatWorks/discussions/new?category=general)
+
+</DiscussionSection>
