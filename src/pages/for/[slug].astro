@@ -51,16 +51,6 @@ const { Content } = await content.render();
           </svg>
           Back to home
         </a>
-        {content.data.discussion_id && (
-          <>
-            <span class="mx-2 text-text-offset">|</span>
-            <a
-              href={`https://github.com/orgs/UseWhatWorks/discussions/${content.data.discussion_id}`}
-              target="_blank"
-              rel="noopener"
-              class="text-primary hover:underline">Discuss this</a>
-          </>
-        )}
         <ShareButtons
           url={`https://usewhatworks.org/for/${slug}`}
           text={`${content.data.title}: ${content.data.tagline}`}
