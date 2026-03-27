@@ -53,9 +53,9 @@ Accessibility and sustainability can coexist.
 
 ## Join the  Discussions
 
-- [f everyone uses existing software, where does new software come from?](https://github.com/orgs/UseWhatWorks/discussions/11)
+- [If everyone uses existing software, where does new software come from?](https://github.com/orgs/UseWhatWorks/discussions/11)
 
-- [As more developers choose existing solutions the burden on maintainers will grow.](https://github.com/orgs/UseWhatWorks/discussions/12)
+- [As more developers choose existing solutions, what about the burden on maintainers?](https://github.com/orgs/UseWhatWorks/discussions/12)
 
 - [Start a new Discussion](https://github.com/orgs/UseWhatWorks/discussions/new?category=general)
 
