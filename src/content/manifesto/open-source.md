@@ -3,7 +3,6 @@ title: "For Maintainers and Vendors"
 tagline: "Sustaining the software the world runs on"
 emoji: "🌱"
 gradient: "from-green-500/10 to-teal-500/10"
-discussion_id: 5
 ---
 
 Open source is the backbone of modern software. But 'free to use' was never meant to mean 'free to sustain.'
