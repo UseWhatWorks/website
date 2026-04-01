@@ -48,4 +48,3 @@ Not every user can justify enterprise pricing. A [small business program](/small
 Accessibility and sustainability can coexist.
 
 ---
-

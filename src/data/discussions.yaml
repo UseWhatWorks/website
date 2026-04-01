@@ -1,0 +1,34 @@
+# Role-specific discussion links
+#
+# Each role key must match the slug used in src/content/manifesto/ (without .md).
+#
+# Format:
+#   role-slug:
+#     - title: Question or discussion topic
+#       url: https://github.com/orgs/UseWhatWorks/discussions/ID
+#
+# A "Start a new discussion" link is automatically appended.
+
+developers:
+  - title: How do developers remain creative?
+    url: https://github.com/orgs/UseWhatWorks/discussions/5
+  - title: How do I handle mission-critical issues in code that I can't change?
+    url: https://github.com/orgs/UseWhatWorks/discussions/6
+
+business-leaders:
+  - title: Vendor costs can grow significantly at scale?
+    url: https://github.com/orgs/UseWhatWorks/discussions/9
+  - title: What do we do when existing solutions don't solve our problem?
+    url: https://github.com/orgs/UseWhatWorks/discussions/10
+
+engineering-leaders:
+  - title: How do we mitigate supply chain risk?
+    url: https://github.com/orgs/UseWhatWorks/discussions/7
+  - title: How do we deal with vendor lock-in?
+    url: https://github.com/orgs/UseWhatWorks/discussions/8
+
+open-source:
+  - title: If everyone uses existing software, where does new software come from?
+    url: https://github.com/orgs/UseWhatWorks/discussions/11
+  - title: As more developers choose existing solutions, what about the burden on maintainers?
+    url: https://github.com/orgs/UseWhatWorks/discussions/12
