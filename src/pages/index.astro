@@ -104,75 +104,82 @@ const featured = allResources.filter(r => r.featured);
   </section>
 
   <!-- Community Teaser -->
-  <section class="pb-16 pt-4 px-4 sm:px-6">
+  <section class="py-20 px-4 sm:px-6">
     <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-6">
-        <h2 class="text-2xl sm:text-3xl font-bold mb-2">Further Reading</h2>
-        <p class="text-text-offset mt-1 mb-2">Articles and talks that shaped Use What Works.</p>
-        <a href="/community" class="inline-block text-primary hover:underline font-semibold shrink-0" data-astro-cid-j7pv25f6="">
-        View all →
-        </a>
-      </div>      
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {featured.map((resource) => (
+      <div class="text-center mb-12">
+        <div class="inline-block w-12 h-0.5 bg-primary mb-6"></div>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">Further Reading</h2>
+        <p class="text-text-offset max-w-md mx-auto">Articles and talks that shaped Use What Works.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {featured.map((resource, i) => (
           <a
             href={resource.url}
             target="_blank"
             rel="noopener"
-            class="group p-5 bg-background-offset rounded-xl border border-border hover:border-primary transition-colors"
+            class="reading-card group relative p-6 rounded-2xl border border-border bg-background-offset transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+            style={`animation-delay: ${i * 80}ms`}
           >
-            <h3 class="font-bold text-sm group-hover:text-primary transition-colors">{resource.title}</h3>
-            <p class="text-xs text-primary mt-1">{resource.author}</p>
+            <div class="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+            <h3 class="font-bold text-sm leading-snug mb-2 group-hover:text-primary transition-colors duration-300">{resource.title}</h3>
+            <p class="text-xs text-text-offset">{resource.author}</p>
+            <svg class="w-4 h-4 absolute bottom-5 right-5 text-primary opacity-0 group-hover:opacity-60 transition-all duration-300 translate-y-1 group-hover:translate-y-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+            </svg>
           </a>
         ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/community" class="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline underline-offset-4">
+          Explore the full collection
+          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Divider -->
-  <div class="max-w-4xl mx-auto px-4 sm:px-6">
-    <hr class="border-border" />
-  </div>
-
   <!-- Signatories Section -->
-  <section id="sign" class="py-16 px-4 sm:px-6">
+  <section id="sign" class="py-20 px-4 sm:px-6 bg-background-offset/50">
     <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-10">
-        <h2 class="text-2xl sm:text-3xl font-bold mb-2">Signatories</h2>
+      <div class="text-center mb-12">
+        <div class="inline-block w-12 h-0.5 bg-primary mb-6"></div>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">Signatories</h2>
         <p class="text-text-offset">
-          {signatories.length} {signatories.length === 1 ? 'person has' : 'people have'} signed this manifesto
+          <span class="tabular-nums font-semibold text-text">{signatories.length}</span> {signatories.length === 1 ? 'person has' : 'people have'} signed this manifesto
         </p>
       </div>
 
-      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
         {signatories.map((person) => (
-          <li class="p-4 bg-background-offset rounded-lg border border-border hover:border-primary transition-colors">
-            <div class="flex items-start gap-3">
+          <li class="group p-4 rounded-xl bg-background border border-border hover:border-primary transition-colors">
+            <div class="flex items-center gap-3">
               {person.github && (
                 <img
                   src={`https://github.com/${person.github}.png?size=64`}
                   alt=""
-                  width="40"
-                  height="40"
+                  width="36"
+                  height="36"
                   loading="lazy"
-                  class="rounded-full shrink-0 mt-0.5"
+                  class="rounded-full shrink-0 ring-2 ring-border group-hover:ring-primary/30 transition-all duration-300"
                 />
               )}
-              <div>
+              <div class="min-w-0">
                 {person.url ? (
                   <a
                     href={person.url}
                     target="_blank"
                     rel="noopener"
-                    class="font-semibold text-primary hover:underline"
+                    class="block font-semibold text-sm text-primary hover:underline underline-offset-2"
                   >
                     {person.name}
                   </a>
                 ) : (
-                  <span class="font-semibold">{person.name}</span>
+                  <span class="block font-semibold text-sm">{person.name}</span>
                 )}
                 {(person.title || person.org) && (
-                  <p class="text-sm text-text-offset mt-1">
+                  <p class="text-xs text-text-offset mt-0.5">
                     {person.title}{person.title && person.org && ' at '}{person.org}
                   </p>
                 )}
@@ -183,23 +190,28 @@ const featured = allResources.filter(r => r.featured);
       </ul>
 
       <!-- CTA -->
-      <div class="text-center p-8 bg-background-offset rounded-xl border border-border">
-        <h3 class="text-xl font-bold mb-2">Sign the Manifesto</h3>
-        <p class="text-text-offset mb-6">
-          Add your name by opening an issue on GitHub.
-        </p>
-        <a
-          href="https://github.com/UseWhatWorks/website/issues/new?template=add-signature.yml"
-          class="inline-block px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
-        >
-          Add Your Signature
-        </a>
-        <p class="text-text-offset text-sm mt-4 mb-2">or spread the word</p>
-        <ShareButtons
-          url="https://usewhatworks.org"
-          text="Use What Works: Choose proven solutions over building from scratch."
-          class="justify-center"
-        />
+      <div class="relative text-center p-10 sm:p-12 rounded-2xl border border-border bg-background overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/3 to-transparent"></div>
+        <div class="relative">
+          <h3 class="text-xl sm:text-2xl font-bold mb-3">Sign the Manifesto</h3>
+          <p class="text-text-offset mb-8 max-w-sm mx-auto">
+            Add your name by opening an issue on GitHub.
+          </p>
+          <a
+            href="https://github.com/UseWhatWorks/website/issues/new?template=add-signature.yml"
+            class="inline-block px-8 py-3.5 bg-primary text-white font-semibold rounded-xl hover:opacity-90 transition-all duration-200 hover:shadow-lg hover:shadow-primary/20"
+          >
+            Add Your Signature
+          </a>
+          <div class="mt-6 pt-5 border-t border-border">
+            <p class="text-text-offset text-xs tracking-wide uppercase mb-3">or spread the word</p>
+            <ShareButtons
+              url="https://usewhatworks.org"
+              text="Use What Works: Choose proven solutions over building from scratch."
+              class="justify-center"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -208,5 +220,9 @@ const featured = allResources.filter(r => r.featured);
 <style>
   .role-card {
     backdrop-filter: blur(10px);
+  }
+
+  .reading-card {
+    backdrop-filter: blur(4px);
   }
 </style>
