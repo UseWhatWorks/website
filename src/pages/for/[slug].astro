@@ -40,6 +40,9 @@ const discussions = allDiscussions[slug as string] || [];
       <p class="text-xl text-text-offset">
         {content.data.tagline}
       </p>
+      <a href="#discussions" target="_blank" rel="noopener" class="inline-block px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:opacity-90 transition-opacity" data-astro-cid-j7pv25f6="">
+Join the discussion
+</a>
     </div>
   </section>
 
@@ -53,10 +56,10 @@ const discussions = allDiscussions[slug as string] || [];
   <!-- Discussions -->
   {discussions.length > 0 && (
     <section class="px-4 sm:px-6">
-      <div class="max-w-3xl mx-auto">
+      <div class="max-w-4xl mx-auto text-center p-8 bg-background-offset rounded-xl border border-border">
         <div>
-          <h2 class="text-lg font-semibold mb-6">Join the Conversation</h2>
-          <div class="space-y-3">
+         <h3 id="discussions" class="text-xl font-bold mb-2" data-astro-cid-n32dgddi="">Join the Conversation</h3>
+          <div class="space-y-4">
             {discussions.map((discussion) => (
               <a
                 href={discussion.url}
