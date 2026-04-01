@@ -106,9 +106,12 @@ const featured = allResources.filter(r => r.featured);
   <!-- Community Teaser -->
   <section class="pb-16 pt-4 px-4 sm:px-6">
     <div class="max-w-4xl mx-auto">
- <div class="text-center mb-10">
+ <div class="text-center mb-6">
         <h2 class="text-2xl sm:text-3xl font-bold mb-2">Further Reading</h2>
-        <p class="text-text-offset mt-1">Articles and talks that shaped Use What Works.</p>
+        <p class="text-text-offset mt-1 mb-2">Articles and talks that shaped Use What Works.</p>
+        <a href="/community" class="inline-block text-primary hover:underline font-semibold shrink-0" data-astro-cid-j7pv25f6="">
+        View all →
+        </a>
       </div>      
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
         {featured.map((resource) => (
@@ -123,9 +126,6 @@ const featured = allResources.filter(r => r.featured);
           </a>
         ))}
       </div>
- <a href="/community" class="text-primary hover:underline font-semibold shrink-0 ml-4">
-          View all &rarr;
-        </a>
     </div>
   </section>
 
