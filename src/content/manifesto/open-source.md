@@ -48,15 +48,3 @@ Not every user can justify enterprise pricing. A [small business program](/small
 Accessibility and sustainability can coexist.
 
 ---
-
-<DiscussionSection>
-
-## Join the  Discussions
-
-- [If everyone uses existing software, where does new software come from?](https://github.com/orgs/UseWhatWorks/discussions/11)
-
-- [As more developers choose existing solutions, what about the burden on maintainers?](https://github.com/orgs/UseWhatWorks/discussions/12)
-
-- [Start a new Discussion](https://github.com/orgs/UseWhatWorks/discussions/new?category=general)
-
-</DiscussionSection>

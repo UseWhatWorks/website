@@ -32,15 +32,3 @@ Frame it in terms your manager or client cares about: reduced risk, faster deliv
 When projects evolve their licensing or introduce commercial models, they are usually doing so to survive. That is not a betrayal; it is the cost of sustainability.
 
 Supporting those transitions keeps the tools you depend on healthy and maintained.
-
-<DiscussionSection>
-
-## Join the  Discussions
-
-- [How do Developers remain creative?](https://github.com/orgs/UseWhatWorks/discussions/5)
-
-- [How do I handle mission-critical issues in code that I can't change?](https://github.com/orgs/UseWhatWorks/discussions/6)
-
-- [Start a new Discussion](https://github.com/orgs/UseWhatWorks/discussions/new?category=general)
-
-</DiscussionSection>

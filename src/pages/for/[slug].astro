@@ -1,8 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ShareButtons from '../../components/ShareButtons.astro';
-import DiscussionSection from "../../components/DiscussionSection.astro";
 import { getEntry, getCollection } from 'astro:content';
+import yaml from 'js-yaml';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export async function getStaticPaths() {
   const manifestoEntries = await getCollection('manifesto');
@@ -20,6 +22,11 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const content = await getEntry('manifesto', slug);
 const { Content } = await content.render();
+
+const discussionsPath = path.join(process.cwd(), 'src/data/discussions.yaml');
+const discussionsFile = fs.readFileSync(discussionsPath, 'utf-8');
+const allDiscussions = yaml.load(discussionsFile) as Record<string, Array<{ title: string; url: string }>>;
+const discussions = allDiscussions[slug as string] || [];
 ---
 
 <Layout title={`${content.data.title} - Use What Works`}>
@@ -37,14 +44,54 @@ const { Content } = await content.render();
   </section>
 
   <!-- Content -->
-  <section class="py-16 px-4 sm:px-6">
+  <section class="pt-16 pb-8 px-4 sm:px-6">
     <article class="prose">
       <Content />
     </article>
   </section>
 
+  <!-- Discussions -->
+  {discussions.length > 0 && (
+    <section class="px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto">
+        <div>
+          <h2 class="text-lg font-semibold mb-6">Join the Conversation</h2>
+          <div class="space-y-3">
+            {discussions.map((discussion) => (
+              <a
+                href={discussion.url}
+                target="_blank"
+                rel="noopener"
+                class="group flex items-start gap-3 p-4 rounded-lg border-l-3 border-primary/30 bg-background-offset hover:border-primary hover:bg-primary/5 transition-all"
+              >
+                <svg class="w-5 h-5 text-primary/50 group-hover:text-primary shrink-0 mt-0.5 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
+                </svg>
+                <span class="text-sm text-text-offset group-hover:text-text transition-colors leading-snug">{discussion.title}</span>
+                <svg class="w-4 h-4 text-text-offset/0 group-hover:text-primary shrink-0 mt-0.5 ml-auto transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                </svg>
+              </a>
+            ))}
+          </div>
+          <a
+            href="https://github.com/orgs/UseWhatWorks/discussions/new?category=general"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-1.5 mt-4 text-sm text-text-offset hover:text-primary transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+            Start a new discussion
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- Back Link -->
-  <section class="pb-16 px-4 sm:px-6">
+  <section class="pb-16 pt-12 px-4 sm:px-6">
     <div class="max-w-3xl mx-auto flex items-center">
         <a href="/" class="inline-flex items-center text-primary hover:underline">
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

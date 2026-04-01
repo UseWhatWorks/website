@@ -32,15 +32,3 @@ Your custom solution has none of these. Just an on-call engineer reading code th
 ## Bugs Get Found Faster at Scale
 
 Software deployed across thousands of organizations has already encountered problems your custom solution has not even discovered yet. You benefit from the collective experience of an entire community, without paying for the lessons individually.
-
-<DiscussionSection>
-
-## Join the  Discussions
-
-- [How do we mitigate supply chain risk?](https://github.com/orgs/UseWhatWorks/discussions/7)
-
-- [How do we deal with vendor lockin?](https://github.com/orgs/UseWhatWorks/discussions/8)
-
-- [Start a new Discussion](https://github.com/orgs/UseWhatWorks/discussions/new?category=general)
-
-</DiscussionSection>
