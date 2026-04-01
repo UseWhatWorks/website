@@ -26,6 +26,10 @@ jobs:
         with:
           submodules: true
 
+      - name: Record start time
+        id: timer
+        run: echo "start=$(date +%s)" >> "$GITHUB_OUTPUT"
+
       - name: Deploy to Azure Static Web Apps
         id: deploy
         uses: Azure/static-web-apps-deploy@v1
@@ -35,6 +39,19 @@ jobs:
           app_location: "/"
           output_location: "dist"
           deployment_environment: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || '' }}
+
+      - name: Calculate build duration
+        if: github.event_name == 'pull_request'
+        id: duration
+        run: |
+          elapsed=$(( $(date +%s) - ${{ steps.timer.outputs.start }} ))
+          minutes=$(( elapsed / 60 ))
+          seconds=$(( elapsed % 60 ))
+          if [ "$minutes" -gt 0 ]; then
+            echo "text=${minutes}m ${seconds}s" >> "$GITHUB_OUTPUT"
+          else
+            echo "text=${seconds}s" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Find existing deployment comment
         if: github.event_name == 'pull_request'
@@ -53,8 +70,11 @@ jobs:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
           edit-mode: replace
           body: |
-            ### Azure Static Web Apps: Your stage site is ready!
-            ${{ steps.deploy.outputs.static_web_app_url }}
+            **Azure Static Web Apps** deployed your preview site, have a look!
+
+            :rocket: ${{ steps.deploy.outputs.static_web_app_url }}
+
+            Built from ${{ github.sha }} in ${{ steps.duration.outputs.text }}.
           
   close_pr_environment:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
