@@ -67,8 +67,8 @@ signatories:
     url: https://henriksen.no
     org: Justify
     github: henriksen
-  - name: Glenn F. Henriksen
-    title: CTO
-    url: https://henriksen.no
-    org: Justify
-    github: henriksen
+  - name: Chris Ayers
+    title: Principal Software Engineer
+    url: https://chris-ayers.com
+    org: Microsoft
+    github: codebytes
