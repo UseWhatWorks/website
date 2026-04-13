@@ -25,7 +25,7 @@ articles:
     featured: true
 
   - title: "Own What Makes You You"
-    author: Ardalis
+    author: Steve 'Ardalis' Smith
     description: "You should build and own the things that differentiate you, and buy or outsource the rest. Applying the Build vs. Buy question to your brand and business."
     url: https://ardalis.com/own-what-makes-you-you/
     
@@ -45,21 +45,30 @@ articles:
     url: https://arxiv.org/abs/2005.12574
 
 talks:
+  - title: Introducing UseWhatWorks.org
+    author: Dylan Beattie with Chris Woodruff
+    description: Dylan Beattie and Chris Woodruff discuss the origins of UseWhatWorks.org, why the build-vs-buy conversation matters, and what it means for the developer community.
+    url: https://www.youtube.com/watch?v=Z5fzZHwmpwM
+    videoId: Z5fzZHwmpwM
+    featured: true
+
   - title: Build v/s Buy
     author: Todd Gardner
     description: A clear-headed walkthrough of how to make the build-or-buy decision without letting ego drive it.
     url: https://www.youtube.com/watch?v=wjcuhMXuULY
-    featured: true
+    videoId: wjcuhMXuULY
 
   - title: Choose Boring Technology (talk)
     author: Dan McKinley
     description: The conference talk version of the famous essay, with worked examples and audience Q&A.
     url: https://boringtechnology.club/
+    thumbnail: https://boringtechnology.club/slides/slides.001.jpeg
 
   - title: Making Better Build vs Buy Decisions
     author: Chris Bell
     description: Practical decision framework presented at LeadDev New York 2024.
     url: https://www.youtube.com/watch?v=sGOamUc0zM0
+    videoId: sGOamUc0zM0
 
 quote:
   text: "For every dev who thinks 'I could build this $30/month SaaS myself instead of paying for it' - the best thing you can do IS to build it! You learn 1. How much work it is (just for the base case) 2. Edge cases the SaaS silently takes care of 3. The cost (+pain!) of maintenance"

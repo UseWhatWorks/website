@@ -8,12 +8,14 @@ const resourcesPath = path.join(process.cwd(), 'src/data/resources.yaml');
 const resourcesFile = fs.readFileSync(resourcesPath, 'utf-8');
 const data = yaml.load(resourcesFile) as {
   articles: Array<{ title: string; author: string; description: string; url: string; featured?: boolean }>;
-  talks: Array<{ title: string; author: string; description: string; url: string; featured?: boolean }>;
+  talks: Array<{ title: string; author: string; description: string; url: string; featured?: boolean; videoId?: string; thumbnail?: string }>;
   quote: { text: string; author: string };
 };
 
 const articles = data.articles || [];
-const talks = data.talks || [];
+const allTalks = data.talks || [];
+const featuredVideo = allTalks.find(t => t.videoId && t.featured);
+const talks = allTalks.filter(t => t !== featuredVideo);
 const quote = data.quote;
 ---
 
@@ -59,19 +61,83 @@ const quote = data.quote;
   <section class="pb-20 px-4 sm:px-6">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-8">Videos</h2>
+
+      {featuredVideo && (
+        <a
+          href={featuredVideo.url}
+          target="_blank"
+          rel="noopener"
+          class="featured-video group relative flex flex-col sm:flex-row rounded-2xl border border-border bg-background-offset overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 mb-8"
+        >
+          {/* Thumbnail */}
+          <div class="relative sm:w-[320px] shrink-0 aspect-video sm:aspect-auto overflow-hidden bg-black/5">
+            <img
+              src={`https://img.youtube.com/vi/${featuredVideo.videoId}/maxresdefault.jpg`}
+              alt=""
+              loading="eager"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            {/* Play button overlay */}
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="play-btn w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/25 transition-all duration-300 group-hover:bg-primary group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-primary/30">
+                <svg class="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+            </div>
+            {/* Subtle gradient at bottom of thumbnail */}
+            <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/20 to-transparent sm:hidden"></div>
+          </div>
+
+          {/* Text content */}
+          <div class="flex-1 p-6 sm:p-7 flex flex-col justify-center relative">
+            <div class="absolute top-0 left-7 right-7 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 sm:left-0 sm:right-0 sm:top-0 sm:bottom-0 sm:w-px sm:h-auto sm:bg-gradient-to-b"></div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-primary mb-2">Featured</p>
+            <h3 class="font-bold text-lg leading-snug mb-1 group-hover:text-primary transition-colors duration-300">{featuredVideo.title}</h3>
+            <p class="text-sm text-text-offset mb-3">{featuredVideo.author}</p>
+            <p class="text-sm text-text-offset leading-relaxed">{featuredVideo.description}</p>
+            <div class="mt-4 flex items-center gap-1.5 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              Watch on YouTube
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+              </svg>
+            </div>
+          </div>
+        </a>
+      )}
+
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {talks.map((resource, i) => (
           <a
             href={resource.url}
             target="_blank"
             rel="noopener"
-            class="reading-card group relative p-6 rounded-2xl border border-border bg-background-offset transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+            class="reading-card group relative flex flex-row rounded-2xl border border-border bg-background-offset transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden"
             style={`animation-delay: ${i * 80}ms`}
           >
-            <div class="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            <h3 class="font-bold text-sm leading-snug mb-1 group-hover:text-primary transition-colors duration-300">{resource.title}</h3>
-            <p class="text-xs text-text-offset mb-3">{resource.author}</p>
-            <p class="text-sm text-text-offset leading-relaxed">{resource.description}</p>
+            {(resource.videoId || resource.thumbnail) && (
+              <div class="relative w-32 shrink-0 overflow-hidden bg-black/5">
+                <img
+                  src={resource.videoId ? `https://img.youtube.com/vi/${resource.videoId}/hqdefault.jpg` : resource.thumbnail}
+                  alt=""
+                  loading="lazy"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="play-btn w-8 h-8 rounded-full bg-primary/90 flex items-center justify-center shadow-md shadow-primary/20 transition-all duration-300 group-hover:bg-primary group-hover:scale-110">
+                    <svg class="w-3.5 h-3.5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            )}
+            <div class="relative p-6 flex-1 min-w-0">
+              <div class="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+              <h3 class="font-bold text-sm leading-snug mb-1 group-hover:text-primary transition-colors duration-300">{resource.title}</h3>
+              <p class="text-xs text-text-offset mb-3">{resource.author}</p>
+              <p class="text-sm text-text-offset leading-relaxed">{resource.description}</p>
+            </div>
             <svg class="w-4 h-4 absolute top-6 right-6 text-primary opacity-0 group-hover:opacity-60 transition-all duration-300 translate-y-1 group-hover:translate-y-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
             </svg>
@@ -126,5 +192,13 @@ const quote = data.quote;
 <style>
   .reading-card {
     backdrop-filter: blur(4px);
+  }
+
+  .featured-video {
+    backdrop-filter: blur(4px);
+  }
+
+  .play-btn {
+    backdrop-filter: blur(8px);
   }
 </style>
