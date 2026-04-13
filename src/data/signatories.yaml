@@ -18,7 +18,6 @@ signatories:
   #   title: Software Engineer
   #   org: Example Corp
   #   github: adalovelace
-
   - name: Chris 'Woody' Woodruff
     title: Fractional Architect
     url: https://woodruff.dev/
@@ -72,6 +71,10 @@ signatories:
     url: https://chris-ayers.com
     org: Microsoft
     github: codebytes
+  - name: Nico Vermeir
+    title: Cloud Solution Architect
+    url: https://github.com/NicoVermeir
+    github: NicoVermeir
   - name: Stacy Cashmore
     title: Tech Explorer DevOps
     url: https://stacy-clouds.net
