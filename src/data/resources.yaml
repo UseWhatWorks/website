@@ -27,7 +27,7 @@ articles:
   - title: "Own What Makes You You"
     author: Ardalis
     description: "You should build and own the things that differentiate you, and buy or outsource the rest. Applying the Build vs. Buy question to your brand and business."
-    url: https://ardalis.com/own-what-makes-you-you/
+    url: https://ardalis.com/own-what-makes-you-you/    
     
   - title: "Don't Reinvent the Wheel, Unless You Plan on Learning More About Wheels"
     author: Jeff Atwood
@@ -43,6 +43,12 @@ articles:
     author: Academic study
     description: 26 factors developers consider when choosing a library. A practical guide on when to build vs. buy.
     url: https://arxiv.org/abs/2005.12574
+
+  - title: "Open-Source Exploitation"
+    author: David Whitney
+    description: An argument that open source’s success has enabled widespread corporate use without ensuring fair support or sustainability for the people maintaining it.
+    url: https://davidwhitney.co.uk/blog/2021/12/13/open_source_exploitation/
+ 
 
 talks:
   - title: Build v/s Buy
