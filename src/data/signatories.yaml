@@ -17,6 +17,7 @@ signatories:
   #   url: https://example.com
   #   title: Software Engineer
   #   org: Example Corp
+<<<<<<< add-signatory/issue-80
   #   github: adalovelace
   - name: Chris 'Woody' Woodruff
     title: Fractional Architect
@@ -104,3 +105,92 @@ signatories:
     title: Software Engineer
     url: https://www.linkedin.com/in/poornimanayar
     github: poornimanayar
+=======
+  #   github: adalovelace
+  - name: Chris 'Woody' Woodruff
+    title: Fractional Architect
+    url: https://woodruff.dev/
+    github: cwoodruff
+  - name: Dylan Beattie
+    title: Software Development Consultant
+    url: https://dylanbeattie.net/
+    org: Ursatile
+    github: dylanbeattie
+  - name: Steve 'Ardalis' Smith
+    title: Software Architect
+    url: https://ardalis.com/
+    github: ardalis
+  - name: Adam Wright
+    title: Software Engineer
+    url: https://github.com/awright18
+    github: awright18
+  - name: Todd H. Gardner
+    title: CEO and Founder
+    url: https://www.toddhgardner.com
+    org: TrackJS
+    github: toddhgardner
+  - name: Lotte Pitcher
+    title: Developer Relations
+    url: https://lotte.dev
+    org: Umbraco
+    github: LottePitcher
+  - name: Abdul Rahman
+    title: Software Architect
+    url: https://ilovedotnet.org
+    github: fingers10
+  - name: Pete Buckney
+    url: https://github.com/bovreuil
+    github: bovreuil
+  - name: Sebastian Nilsson
+    title: Renaissance Engineer
+    url: https://sebnilsson.com/
+    github: sebnilsson
+  - name: Chase Aucoin
+    title: CTO
+    url: https://riptideos.com/
+    org: Highwater Labs
+    github: chaseaucoin
+  - name: Adele Carpenter
+    title: Software Engineer
+    url: https://github.com/adele97
+    github: adele97
+  - name: Glenn F. Henriksen
+    title: CTO
+    url: https://henriksen.no
+    org: Justify
+    github: henriksen
+  - name: Chris Ayers
+    title: Principal Software Engineer
+    url: https://chris-ayers.com
+    org: Microsoft
+    github: codebytes
+  - name: Nico Vermeir
+    title: Cloud Solution Architect
+    url: https://github.com/NicoVermeir
+    github: NicoVermeir
+  - name: Stacy Cashmore
+    title: Tech Explorer DevOps
+    url: https://stacy-clouds.net
+    github: StacyCash
+  - name: Hannes Lowette
+    title: Principal Consultant
+    org: Axxes
+    url: https://github.com/Belenar
+    github: Belenar
+  - name: Mattias Karlsson
+    title: Partner & Sr. Architect
+    url: https://devlead.se
+    org: WCOMAB
+    github: devlead
+  - name: Tom Grobbe
+    title: Software Engineer
+    url: https://tomgrobbe.com
+    github: TomGrobbe
+  - name: Arthur Doler
+    title: Senior Software Engineer
+    url: https://arthurdoler.com
+    github: doleraj
+  - name: Udi Dahan
+    url: https://github.com/udidahan
+    github: udidahan
+>>>>>>> main
