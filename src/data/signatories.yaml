@@ -114,3 +114,8 @@ signatories:
   - name: Ted Neward
     url: https://www.newardassociates.com
     github: nutrited
+  - name: Steve Fenton
+    title: Principal DevEx Researcher
+    url: https://www.stevefenton.co.uk/
+    org: Octopus Deploy
+    github: steve-fenton-octopus
