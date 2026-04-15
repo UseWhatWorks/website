@@ -117,3 +117,8 @@ signatories:
   - name: Sanat Gersappa
     url: https://github.com/sanatgersappa
     github: sanatgersappa
+  - name: Steve Fenton
+    title: Principal DevEx Researcher
+    url: https://www.stevefenton.co.uk/
+    org: Octopus Deploy
+    github: steve-fenton-octopus
