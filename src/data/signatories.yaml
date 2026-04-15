@@ -122,6 +122,18 @@ signatories:
     url: https://www.stevefenton.co.uk/
     org: Octopus Deploy
     github: steve-fenton-octopus
+  - name: Ken Bonny
+    title: Freelance software consultant
+    url: https://morethancode.be
+    org: More Than Code BV
+    github: KenBonny
+  - name: Dr. Neil Roodyn
+    url: https://NeilsNotes.net
+    github: DrNeil
+  - name: Patrik Svensson
+    title: Software Engineer
+    url: https://patriksvensson.se
+    github: patriksvensson
   - name: Pascal Berger
     url: https://github.com/pascalberger
     github: pascalberger
