@@ -153,3 +153,8 @@ signatories:
     url: https://github.com/martincostello
     org: Grafana Labs
     github: martincostello
+  - name: Kyle McMaster
+    title: Software Architect
+    url: https://www.kylemcmaster.com
+    org: NimblePros
+    github: KyleMcMaster
