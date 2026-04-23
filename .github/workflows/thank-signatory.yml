@@ -26,16 +26,13 @@ jobs:
             const body = [
               "Welcome, and thank you for signing the Use What Works manifesto!",
               "",
-              "Your signature is now live on [usewhatworks.org](https://usewhatworks.org). You're part of a growing group of folks who believe in choosing proven solutions over reinventing the wheel.",
+              "Your signature is now live on [usewhatworks.org](https://usewhatworks.org). You're part of a growing group of people helping the industry build on ever-more stable foundations.",
               "",
-              "## Would you help spread the word?",
+              "## Who else should get this message?",
               "",
-              "The manifesto only grows through people like you sharing it. If you'd like to help:",
-              "",
-              "1. **Post about it** on X, BlueSky, LinkedIn, Mastodon, or wherever you're active. A few sentences about why this resonates with you is enough. Use #usewhatworks so others can find it.",
-              "2. **Drop the link to your post back here as a comment.** Other signatories follow this thread, and when they see a post they appreciate, they can reshare it and help amplify your voice.",
-              "",
-              "That way, every new signature becomes a small boost for the ones that came before it.",
+              "Send them a link.",
+              "",              
+              "If it wouldn't be too much trouble, we'd really appreciate it if you could also post something on LinkedIn, BlueSky, Twitter/X, Mastodon, Reddit, or wherever you're active. Add the #UseWhatWorks hashtag so others can find it more easily.",              
               "",
               "Thanks again for being part of this."
             ].join("\n");
