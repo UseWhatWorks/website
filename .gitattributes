@@ -1,0 +1,2 @@
+# Force LF line endings for YAML data files to avoid CRLF churn from web edits
+src/data/*.yaml text eol=lf
