@@ -12,7 +12,7 @@
 # Types: articles, talks
 
 articles:
-  - title: https://www.architecture-weekly.com/p/you-can-fork-a-package-but-can-you
+  - title: You can fork a package, but can you own it?
     author: Oskar Dudycz 
     description: "Building reliable software requires intent. We don't have to write everything from scratch, but we must be precise about what we bring into our software."
     url: https://www.architecture-weekly.com/p/you-can-fork-a-package-but-can-you
