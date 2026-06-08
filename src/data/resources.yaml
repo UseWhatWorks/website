@@ -28,7 +28,6 @@ articles:
     author: Shawn Wildermuth
     description: Why building your own infrastructure is almost always the wrong call, and how to recognize when you're doing it.
     url: https://blog.wildermuth.com/2025/03/17/build-or-adopt--stop-building-your-own-plumbing/
-    featured: false
 
   - title: "Own What Makes You You"
     author: Steve 'Ardalis' Smith
