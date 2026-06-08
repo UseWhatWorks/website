@@ -12,6 +12,12 @@
 # Types: articles, talks
 
 articles:
+  - title: https://www.architecture-weekly.com/p/you-can-fork-a-package-but-can-you
+    author: Oskar Dudycz 
+    description: "Building reliable software requires intent. We don't have to write everything from scratch, but we must be precise about what we bring into our software."
+    url: https://www.architecture-weekly.com/p/you-can-fork-a-package-but-can-you
+    featured: true
+    
   - title: Choose Boring Technology
     author: Dan McKinley
     description: The seminal talk on why you should pick proven, well-understood tools and spend your innovation tokens wisely.
@@ -22,7 +28,7 @@ articles:
     author: Shawn Wildermuth
     description: Why building your own infrastructure is almost always the wrong call, and how to recognize when you're doing it.
     url: https://blog.wildermuth.com/2025/03/17/build-or-adopt--stop-building-your-own-plumbing/
-    featured: true
+    featured: false
 
   - title: "Own What Makes You You"
     author: Steve 'Ardalis' Smith
