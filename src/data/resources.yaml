@@ -12,17 +12,16 @@
 # Types: articles, talks
 
 articles:
+
   - title: You can fork a package, but can you own it?
     author: Oskar Dudycz 
     description: On managing software dependencies in a sane way
     url: https://www.architecture-weekly.com/p/you-can-fork-a-package-but-can-you
-    featured: true
 
   - title: Choose Boring Technology
     author: Dan McKinley
     description: The seminal talk on why you should pick proven, well-understood tools and spend your innovation tokens wisely.
     url: https://mcfunley.com/choose-boring-technology
-    featured: true
 
   - title: "Build or Adopt? Stop Building Your Own Plumbing"
     author: Shawn Wildermuth
@@ -56,12 +55,18 @@ articles:
  
 
 talks:
+  - title: Jimmy Bogard talks AutoMapper, MediatR, and Open Source
+    author: Dylan Beattie with Jimmy Bogard
+    description: Dylan Beattie talks with Jimmy Bogard about his experiences with AutoMapper, MediatR, and open source software in the .NET ecosystem.
+    url: https://www.youtube.com/watch?v=RE-wHE3iTe4
+    videoId: RE-wHE3iTe4
+    featured: true
+
   - title: Introducing UseWhatWorks.org
     author: Dylan Beattie with Chris Woodruff
     description: Dylan Beattie and Chris Woodruff discuss the origins of UseWhatWorks.org, why the build-vs-buy conversation matters, and what it means for the developer community.
     url: https://www.youtube.com/watch?v=Z5fzZHwmpwM
     videoId: Z5fzZHwmpwM
-    featured: true
 
   - title: Build v/s Buy
     author: Todd Gardner
