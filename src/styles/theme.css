@@ -17,3 +17,54 @@
   --color-background-offset: #1f2937;
   --color-border: rgba(249, 250, 251, 0.1);
 }
+
+/* Sticky header offset, so anchor links do not scroll a heading behind the header */
+:root {
+  --header-height: 4.5rem;
+}
+
+[id],
+.content-section {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+/* Temporary highlight of the section an anchor link points at */
+.content-section {
+  position: relative;
+}
+
+/* Full-bleed band: the section sits in a centered column, the highlight spans the page. */
+.content-section::before {
+  content: '';
+  position: absolute;
+  top: -0.75rem;
+  bottom: -0.75rem;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.dark .content-section::before {
+  background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.content-section.is-highlighted::before {
+  animation: section-highlight 2.8s ease-out forwards;
+}
+
+@keyframes section-highlight {
+  0% { opacity: 0; }
+  6% { opacity: 1; }
+  55% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content-section.is-highlighted::before {
+    animation-duration: 2s;
+  }
+}
