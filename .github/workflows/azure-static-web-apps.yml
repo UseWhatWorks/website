@@ -38,7 +38,8 @@ jobs:
           action: upload
           app_location: "/"
           output_location: "dist"
-          deployment_environment: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || '' }}
+          # No deployment_environment: previews use the default per-PR name, which is
+          # what the close job below tears down. Naming them here would diverge from it.
 
       - name: Calculate build duration
         if: github.event_name == 'pull_request'
