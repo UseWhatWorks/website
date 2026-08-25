@@ -1,0 +1,128 @@
+name: Invite Signatories to LinkedIn Group
+
+# One-off (re-runnable) backfill: posts the LinkedIn group invite from .github/linkedin-invite.md
+# as github-actions[bot] on every signature issue that has not been invited yet.
+# Run it from your machine with:
+#   gh workflow run invite-signatories-linkedin.yml -f linkedin_url=https://... -f dry_run=true
+
+on:
+  workflow_dispatch:
+    inputs:
+      linkedin_url:
+        description: "LinkedIn group URL (falls back to the LINKEDIN_GROUP_URL repository variable)"
+        required: false
+        type: string
+      dry_run:
+        description: "Only report who would be invited, do not post anything"
+        required: false
+        type: boolean
+        default: true
+      limit:
+        description: "Maximum number of comments to post (0 = no limit)"
+        required: false
+        type: string
+        default: "0"
+
+jobs:
+  invite:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Post LinkedIn group invite
+        uses: actions/github-script@v7
+        env:
+          LINKEDIN_URL: ${{ inputs.linkedin_url || vars.LINKEDIN_GROUP_URL }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          LIMIT: ${{ inputs.limit }}
+        with:
+          script: |
+            const fs = require('fs');
+
+            const MARKER = '<!-- linkedin-group-invite -->';
+            const linkedinUrl = (process.env.LINKEDIN_URL || '').trim();
+            const dryRun = process.env.DRY_RUN !== 'false';
+            const limit = parseInt(process.env.LIMIT || '0', 10) || 0;
+
+            if (!linkedinUrl) {
+              core.setFailed('No LinkedIn URL. Pass the linkedin_url input or set the LINKEDIN_GROUP_URL repository variable.');
+              return;
+            }
+
+            const template = fs.readFileSync('.github/linkedin-invite.md', 'utf-8').trim();
+            if (!template.includes(MARKER)) {
+              core.setFailed(`.github/linkedin-invite.md must contain the marker ${MARKER} so people are not invited twice.`);
+              return;
+            }
+
+            const render = (handle) => template
+              .replaceAll('{{LINKEDIN_URL}}', linkedinUrl)
+              .replaceAll('{{GITHUB_HANDLE}}', handle);
+
+            // Every signature request is an issue labelled add-signature, opened by the signatory.
+            const all = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'add-signature',
+              state: 'all',
+              per_page: 100,
+            });
+
+            // One invite per person: if somebody opened more than one request, use the most recent.
+            const byAuthor = new Map();
+            for (const issue of all.filter(i => !i.pull_request).sort((a, b) => a.number - b.number)) {
+              const login = issue.user && issue.user.login;
+              if (!login || (issue.user.type === 'Bot')) continue;
+              byAuthor.set(login, issue);
+            }
+
+            const posted = [];
+            const skipped = [];
+
+            for (const [login, issue] of byAuthor) {
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                per_page: 100,
+              });
+
+              if (comments.some(c => (c.body || '').includes(MARKER))) {
+                skipped.push(`#${issue.number} @${login} (already invited)`);
+                continue;
+              }
+
+              if (limit && posted.length >= limit) {
+                skipped.push(`#${issue.number} @${login} (limit of ${limit} reached)`);
+                continue;
+              }
+
+              if (!dryRun) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  body: render(login),
+                });
+                // Stay well clear of the secondary rate limit on content creation.
+                await new Promise(r => setTimeout(r, 2000));
+              }
+
+              posted.push(`#${issue.number} @${login}`);
+            }
+
+            const heading = dryRun ? 'Dry run: would invite' : 'Invited';
+            core.summary
+              .addHeading('LinkedIn group invite', 2)
+              .addRaw(`Group: ${linkedinUrl}`, true)
+              .addHeading(`${heading} (${posted.length})`, 3)
+              .addList(posted)
+              .addHeading(`Skipped (${skipped.length})`, 3)
+              .addList(skipped)
+              .addHeading('Message', 3)
+              .addCodeBlock(render('example-user'), 'markdown');
+            await core.summary.write();
+
+            core.info(`${heading}: ${posted.length}, skipped: ${skipped.length}`);
