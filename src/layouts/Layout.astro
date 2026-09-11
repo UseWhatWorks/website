@@ -56,9 +56,41 @@ const {
   </head>
   <body class="min-h-screen flex flex-col bg-background text-text font-sans antialiased">
     <Header />
-    <main class="flex-1">
+    <main class="flex-1 overflow-x-clip">
       <slot />
     </main>
     <Footer />
+
+    <!-- Briefly highlight the section an anchor link points at -->
+    <script is:inline>
+      (function () {
+        function highlightTargetSection() {
+          if (!location.hash) return;
+
+          var id = decodeURIComponent(location.hash.slice(1));
+          var target = document.getElementById(id);
+          var section = target && target.closest('.content-section');
+          if (!section) return;
+
+          // Restart the animation when the same anchor is followed twice.
+          section.classList.remove('is-highlighted');
+          void section.offsetWidth;
+          section.classList.add('is-highlighted');
+        }
+
+        window.addEventListener('hashchange', highlightTargetSection);
+
+        // Following a link to the current hash does not fire hashchange.
+        document.addEventListener('click', function (event) {
+          var link = event.target.closest && event.target.closest('a[href*="#"]');
+          if (!link) return;
+          if (link.hash && link.pathname === location.pathname && link.host === location.host) {
+            setTimeout(highlightTargetSection, 0);
+          }
+        });
+
+        highlightTargetSection();
+      })();
+    </script>
   </body>
 </html>

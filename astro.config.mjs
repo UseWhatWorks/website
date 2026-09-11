@@ -4,6 +4,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { remarkDiscuss } from './src/plugins/remark-discuss.mjs';
 import { remarkMdLinks } from './src/plugins/remark-md-links.mjs';
+import { rehypeSectionWrap } from './src/plugins/rehype-section-wrap.mjs';
 
 export default defineConfig({
   site: 'https://usewhatworks.org',
@@ -22,6 +23,7 @@ export default defineConfig({
           children: [{ type: 'text', value: '#' }],
         },
       }],
+      rehypeSectionWrap,
     ],
   },
   build: {
