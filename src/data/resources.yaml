@@ -13,6 +13,11 @@
 
 articles:
 
+  - title: Nobody pays for open source. We can force them to.
+    author: Laurie Voss
+    description: Laurie Voss, co-founder of NPM, on how to solve open source sustainability.
+    url: https://seldo.com/posts/nobody-pays-for-open-source-we-can-force-them-to/
+
   - title: You can fork a package, but can you own it?
     author: Oskar Dudycz 
     description: On managing software dependencies in a sane way
