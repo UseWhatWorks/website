@@ -11,10 +11,16 @@ jobs:
     permissions:
       issues: write
     steps:
+      - uses: actions/checkout@v4
+
       - name: Post thank-you comment on original issue
         uses: actions/github-script@v7
+        env:
+          LINKEDIN_URL: ${{ vars.LINKEDIN_GROUP_URL }}
         with:
           script: |
+            const fs = require('fs');
+
             const branchName = context.payload.pull_request.head.ref;
             const match = branchName.match(/^add-signatory\/issue-(\d+)$/);
             if (!match) {
@@ -37,9 +43,23 @@ jobs:
               "Thanks again for being part of this."
             ].join("\n");
 
+            // Same invite the backfill workflow posts, so nobody gets it twice.
+            const linkedinUrl = (process.env.LINKEDIN_URL || '').trim();
+            let invite = '';
+            if (linkedinUrl) {
+              const { data: issue } = await github.rest.issues.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+              });
+              invite = "\n\n" + fs.readFileSync('.github/linkedin-invite.md', 'utf-8').trim()
+                .replaceAll('{{LINKEDIN_URL}}', linkedinUrl)
+                .replaceAll('{{GITHUB_HANDLE}}', issue.user.login);
+            }
+
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issueNumber,
-              body: body
+              body: body + invite
             });
