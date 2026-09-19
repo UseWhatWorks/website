@@ -21,7 +21,11 @@ const signatoriesData = yaml.load(signatoriesFile) as { signatories: Array<{
   github?: string;
 }> };
 
-const signatories = signatoriesData.signatories || [];
+const realSignatories = signatoriesData.signatories || [];
+const placeholder = { name: 'Your name here?', url: 'https://github.com/UseWhatWorks/website/issues/new?template=add-signature.yml', placeholder: true };
+const signatories = [...realSignatories, placeholder];
+const PAGE_SIZE = 15;
+const firstPage = signatories.slice(0, PAGE_SIZE);
 
 // Load resources
 const resourcesPath = path.join(process.cwd(), 'src/data/resources.yaml');
@@ -147,47 +151,160 @@ const featured = allResources.filter(r => r.featured);
         <div class="inline-block w-12 h-0.5 bg-primary mb-6"></div>
         <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">Signatories</h2>
         <p class="text-text-offset">
-          <span class="tabular-nums font-semibold text-text">{signatories.length}</span> {signatories.length === 1 ? 'person has' : 'people have'} signed this manifesto
+          <span class="tabular-nums font-semibold text-text">{realSignatories.length}</span> {realSignatories.length === 1 ? 'person has' : 'people have'} signed this manifesto
         </p>
       </div>
 
-      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
-        {signatories.map((person) => (
-          <li class="group p-4 rounded-xl bg-background border border-border hover:border-primary transition-colors">
-            <div class="flex items-center gap-3">
-              {person.github && (
-                <img
-                  src={`https://github.com/${person.github}.png?size=64`}
-                  alt=""
-                  width="36"
-                  height="36"
-                  loading="lazy"
-                  class="rounded-full shrink-0 ring-2 ring-border group-hover:ring-primary/30 transition-all duration-300"
-                />
-              )}
-              <div class="min-w-0">
-                {person.url ? (
-                  <a
-                    href={person.url}
-                    target="_blank"
-                    rel="noopener"
-                    class="block font-semibold text-sm text-primary hover:underline underline-offset-2"
-                  >
-                    {person.name}
-                  </a>
-                ) : (
-                  <span class="block font-semibold text-sm">{person.name}</span>
+      <ul id="signatories-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        {firstPage.map((person) => (
+          person.placeholder ? (
+            <li class="group p-4 rounded-xl border-2 border-dashed border-text-offset/30 hover:border-primary/50 transition-colors">
+              <a
+                href={person.url}
+                target="_blank"
+                rel="noopener"
+                class="flex items-center gap-3"
+              >
+                <div class="w-9 h-9 rounded-full shrink-0 border-2 border-dashed border-text-offset/30 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-text-offset/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <span class="block font-semibold text-sm text-text-offset italic">{person.name}</span>
+                  <p class="text-xs text-text-offset/60 mt-0.5">Add your signature</p>
+                </div>
+              </a>
+            </li>
+          ) : (
+            <li class="group p-4 rounded-xl bg-background border border-border hover:border-primary transition-colors">
+              <div class="flex items-center gap-3">
+                {person.github && (
+                  <img
+                    src={`https://github.com/${person.github}.png?size=64`}
+                    alt=""
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                    class="rounded-full shrink-0 ring-2 ring-border group-hover:ring-primary/30 transition-all duration-300"
+                  />
                 )}
-                {(person.title || person.org) && (
-                  <p class="text-xs text-text-offset mt-0.5">
-                    {person.title}{person.title && person.org && ' at '}{person.org}
-                  </p>
-                )}
+                <div class="min-w-0">
+                  {person.url ? (
+                    <a
+                      href={person.url}
+                      target="_blank"
+                      rel="noopener"
+                      class="block font-semibold text-sm text-primary hover:underline underline-offset-2"
+                    >
+                      {person.name}
+                    </a>
+                  ) : (
+                    <span class="block font-semibold text-sm">{person.name}</span>
+                  )}
+                  {(person.title || person.org) && (
+                    <p class="text-xs text-text-offset mt-0.5">
+                      {person.title}{person.title && person.org && ' at '}{person.org}
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
+          )
         ))}
       </ul>
+
+      {signatories.length > PAGE_SIZE && (
+        <div id="signatories-paging" class="flex items-center justify-center gap-4 mb-14">
+          <button id="sig-prev" disabled class="px-4 py-2 text-sm font-semibold rounded-lg border border-border hover:border-primary hover:text-primary disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+            Previous
+          </button>
+          <span id="sig-page-info" class="text-sm text-text-offset tabular-nums">
+            Page 1 of {Math.ceil(signatories.length / PAGE_SIZE)}
+          </span>
+          <button id="sig-next" class="px-4 py-2 text-sm font-semibold rounded-lg border border-border hover:border-primary hover:text-primary disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+            Next
+          </button>
+        </div>
+      )}
+
+      <script is:inline define:vars={{ signatories, PAGE_SIZE }}>
+        (function() {
+          const grid = document.getElementById('signatories-grid');
+          const prevBtn = document.getElementById('sig-prev');
+          const nextBtn = document.getElementById('sig-next');
+          const pageInfo = document.getElementById('sig-page-info');
+          if (!grid || !prevBtn || !nextBtn || !pageInfo) return;
+
+          const totalPages = Math.ceil(signatories.length / PAGE_SIZE);
+          let currentPage = 1;
+
+          function renderSignatory(person) {
+            const li = document.createElement('li');
+
+            if (person.placeholder) {
+              li.className = 'group p-4 rounded-xl border-2 border-dashed border-text-offset/30 hover:border-primary/50 transition-colors';
+              li.innerHTML = '<a href="' + person.url + '" target="_blank" rel="noopener" class="flex items-center gap-3">'
+                + '<div class="w-9 h-9 rounded-full shrink-0 border-2 border-dashed border-text-offset/30 flex items-center justify-center">'
+                + '<svg class="w-4 h-4 text-text-offset/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>'
+                + '</div>'
+                + '<div class="min-w-0">'
+                + '<span class="block font-semibold text-sm text-text-offset italic">' + person.name + '</span>'
+                + '<p class="text-xs text-text-offset/60 mt-0.5">Add your signature</p>'
+                + '</div></a>';
+              return li;
+            }
+
+            li.className = 'group p-4 rounded-xl bg-background border border-border hover:border-primary transition-colors';
+
+            let avatarHtml = '';
+            if (person.github) {
+              avatarHtml = '<img src="https://github.com/' + person.github + '.png?size=64" alt="" width="36" height="36" loading="lazy" class="rounded-full shrink-0 ring-2 ring-border group-hover:ring-primary/30 transition-all duration-300" />';
+            }
+
+            let nameHtml = '';
+            if (person.url) {
+              nameHtml = '<a href="' + person.url + '" target="_blank" rel="noopener" class="block font-semibold text-sm text-primary hover:underline underline-offset-2">' + person.name + '</a>';
+            } else {
+              nameHtml = '<span class="block font-semibold text-sm">' + person.name + '</span>';
+            }
+
+            let detailHtml = '';
+            if (person.title || person.org) {
+              const detail = (person.title || '') + (person.title && person.org ? ' at ' : '') + (person.org || '');
+              detailHtml = '<p class="text-xs text-text-offset mt-0.5">' + detail + '</p>';
+            }
+
+            li.innerHTML = '<div class="flex items-center gap-3">' + avatarHtml + '<div class="min-w-0">' + nameHtml + detailHtml + '</div></div>';
+            return li;
+          }
+
+          function renderPage(page) {
+            currentPage = page;
+            const start = (page - 1) * PAGE_SIZE;
+            const pageItems = signatories.slice(start, start + PAGE_SIZE);
+
+            grid.innerHTML = '';
+            pageItems.forEach(function(person) {
+              grid.appendChild(renderSignatory(person));
+            });
+
+            pageInfo.textContent = 'Page ' + page + ' of ' + totalPages;
+            prevBtn.disabled = page === 1;
+            nextBtn.disabled = page === totalPages;
+
+            grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+
+          prevBtn.addEventListener('click', function() {
+            if (currentPage > 1) renderPage(currentPage - 1);
+          });
+
+          nextBtn.addEventListener('click', function() {
+            if (currentPage < totalPages) renderPage(currentPage + 1);
+          });
+        })();
+      </script>
 
       <!-- CTA -->
       <div class="relative text-center p-10 sm:p-12 rounded-2xl border border-border bg-background overflow-hidden">
