@@ -194,7 +194,11 @@ signatories:
   - name: Thomas J Walton
     url: https://github.com/waltonsword
     github: waltonsword
-  - name: Carl Sargunar 
+  - name: Carl Sargunar
     title: Software Architect and Technology consultant
     url: https://github.com/carlsargunar
     github: carlsargunar
+  - name: Dennis van der Stelt
+    title: Solution Architect
+    url: https://compilesoftware.nl/
+    github: dvdstelt
