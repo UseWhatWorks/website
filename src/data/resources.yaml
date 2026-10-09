@@ -13,11 +13,16 @@
 
 articles:
 
+  - title: "Free Isn’t Free: Dylan Beattie on Open Source, Money, and Sustainable Software"
+    author: iSAQB Software Architecture Gathering
+    description: An interview with Dylan Beattie about sustainability in open source
+    url: https://www.software-architecture-gathering.com/free-isnt-free-dylan-beattie-on-open-source-money-and-sustainable-software/
+    featured: true
+
   - title: Open Source, a relic, a charity or still the thing?
     author: Oskar Dudycz 
     description: On how open source needs sustainable funding and support rather than being treated as free charity
     url: https://www.architecture-weekly.com/p/open-source-a-relict-a-charity-or
-    featured: true
 
   - title: Nobody pays for open source. We can force them to.
     author: Laurie Voss
